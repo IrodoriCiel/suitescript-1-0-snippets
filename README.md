@@ -7,7 +7,7 @@ All Information within these snippets was scraped from NetSuites Help Documents.
 ## Features
 
 |Contained API snippets:|
-|--|--|
+|----|
 | 1 |
 |Record APIs|
 |Subrecord APIs|
