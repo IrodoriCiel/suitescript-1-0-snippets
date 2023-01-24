@@ -6,11 +6,10 @@
   "engines": {
     "vscode": "^1.74.0"
   },
-  "publisher": "IrodoriCiel",
+  "publisher": "MiguelGarcia",
 	"author": {
 		"name": "Miguel García"
 	},
-	"license": "MIT",
 	"homepage": "https://github.com/IrodoriCiel/suitescript-1-0-snippets",
 	"repository": {
 		"type": "git",
@@ -25,8 +24,7 @@
 		"SuiteScript",
 		"SuiteScript 1.0",
 		"1.0",
-		"nlapi",
-		"Controls"
+		"nlapi"
 	],
   "categories": [
     "Snippets"
