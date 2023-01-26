@@ -2,1179 +2,1660 @@
 	//**********************************************
 	//***************** Record APIs ****************
 	//**********************************************
-	
-	"nlapiAttachRecord": {
+	"(Record API) nlapiAttachRecord": {
 		"prefix": "nlapiAttachRecord",
 		"body": [
-			"nlapiAttachRecord(${1:type}, ${2:id}, ${3:type2}, ${4:id2}, ${5:attributes});"
+			"nlapiAttachRecord(${1:\"type\"}, ${2:id}, ${3:\"type2\"}, ${4:id2}, ${5:{attributes\\}});"
 		],
 		"description": "Attaches a single record to another record."
 	},
-	"nlapiCopyRecord": {
+	"(Record API) nlapiCopyRecord": {
 		"prefix": "nlapiCopyRecord",
 		"body": [
-			"nlapiCopyRecord(${1:type}, ${2:id}, ${3:initializeValues});"
+			"var record = nlapiCopyRecord(${1:\"type\"}, ${2:id}, ${3:{initializeValues\\}});"
 		],
 		"description": "Initializes a new record using field data from an existing record. Note that this API simply creates anew instance of another record. After making changes to the copy, you must submit the copy (which isconsidered as a new record) to the database for your changes to be committed to NetSuite"
 	},
-	"nlapiCreateCSVImport": {
+	"(Record API) nlapiCreateCSVImport": {
 		"prefix": "nlapiCreateCSVImport",
 		"body": [
-			"nlapiCreateCSVImport();"
+			"var csvImport = nlapiCreateCSVImport();"
 		],
 		"description": "Initializes a new record and returns an nlobjCSVImport object."
 	},
-	"nlapiCreateEmailMerger": {
+	"(Record API) nlapiCreateEmailMerger": {
 		"prefix": "nlapiCreateEmailMerger",
 		"body": [
-			"nlapiCreateEmailMerger(${1:templateId});"
+			"var emailMerger = nlapiCreateEmailMerger(${1:templateId});"
 		],
 		"description": "With scriptable e-mail templates (Freemarker templates), you can create dynamic templates for email marketing campaigns and system e-mail. See the help topic Scriptable Templates for additional information."
 	},
-	"nlapiCreateRecord": {
+	"(Record API) nlapiCreateRecord": {
 		"prefix": "nlapiCreateRecord",
 		"body": [
-			"nlapiCreateRecord(${1:type}, ${2:initializeValues});"
+			"var record = nlapiCreateRecord(${1:\"type\"}, ${2:{initializeValues\\}});"
 		],
 		"description": "Initializes a new record and returns an nlobjRecord object containing all the default field data for that record type."
 	},
-	"nlapiDeleteRecord": {
+	"(Record API) nlapiDeleteRecord": {
 		"prefix": "nlapiDeleteRecord",
 		"body": [
-			"nlapiDeleteRecord(${1:type}, ${2:id}, ${3:initializeValues});"
+			"var idDeletedRecord = nlapiDeleteRecord(${1:\"type\"}, ${2:id}, ${3:{initializeValues\\}});"
 		],
 		"description": "Use this API to delete an existing record. This API is supported in all script types."
 	},
-	"nlapiDetachRecord": {
+	"(Record API) nlapiDetachRecord": {
 		"prefix": "nlapiDetachRecord",
 		"body": [
-			"nlapiDetachRecord(${1:type}, ${2:id}, ${3:type2}, ${4:id2}, ${5:attributes});"
+			"nlapiDetachRecord(${1:\"type\"}, ${2:id}, ${3:\"type2\"}, ${4:id2}, ${5:{attributes\\}});"
 		],
 		"description": "Use this API to detach a single record from another record. "
 	},
-	"nlapiGetOldRecord": {
+	"(Record API) nlapiGetOldRecord": {
 		"prefix": "nlapiGetOldRecord",
 		"body": [
-			"nlapiGetOldRecord();"
+			"var record = nlapiGetOldRecord();"
 		],
 		"description": "Available in beforeLoad, beforeSubmit, and afterSubmit user event scripts. You are not allowed to submit the current or previous record returned by nlapiGetOldRecord."
 	},
-	"nlapiGetNewRecord": {
+	"(Record API) nlapiGetNewRecord": {
 		"prefix": "nlapiGetNewRecord",
 		"body": [
-			"nlapiGetNewRecord();"
+			"var record = nlapiGetNewRecord();"
 		],
 		"description": "Available in beforeLoad, beforeSubmit, and afterSubmit user event scripts. You are not allowed to submit the current or previous record returned by nlapiGetNewRecord."
 	},
-	"nlapiGetRecordId": {
+	"(Record API) nlapiGetRecordId": {
 		"prefix": "nlapiGetRecordId",
 		"body": [
-			"nlapiGetRecordId();"
+			"var id = nlapiGetRecordId();"
 		],
 		"description": "Use this API to retrieve the internalId of the current record in a user event script. This API is available in client and user event scripts only."
 	},
-	"nlapiGetRecordType": {
+	"(Record API) nlapiGetRecordType": {
 		"prefix": "nlapiGetRecordType",
 		"body": [
-			"nlapiGetRecordType();"
+			"var type = nlapiGetRecordType();"
 		],
 		"description": "Use this API to retrieve the record type internal ID of the current record in a user event script or a client script. If there is no current record type, the value of null will be returned."
 	},
-	"nlapiLoadRecord": {
+	"(Record API) nlapiLoadRecord": {
 		"prefix": "nlapiLoadRecord",
 		"body": [
-			"var record = nlapiLoadRecord(${1:type}, ${2:id}, ${3:initializeValues});"
+			"var record = nlapiLoadRecord(${1:\"type\"}, ${2:id}, ${3:{initializeValues\\}});"
 		],
 		"description": "Loads an existing record from the system and returns an nlobjRecord object containing all the field data for that record."
 	},
-	"nlapiMergeRecord": {
+	"(Record API) nlapiMergeRecord": {
 		"prefix": "nlapiMergeRecord",
 		"body": [
-			"nlapiMergeRecord(${1:id}, ${2:baseType}, ${3:baseId}, ${4:altType}, ${5:altId}, ${6:fields});"
+			"nlapiMergeRecord(${1:id}, ${2:\"baseType\"}, ${3:baseId}, ${4:\"altType\"}, ${5:altId}, ${6:{fields\\}}); //Deprecated Since Version 2015 Release 1"
 		],
 		"description": "This API is deprecated as of NetSuite Version 2015 Release 1. This function will no longer be supported as of Version 2016 Release 1."
 	},
-	"nlapiMergeTemplate": {
+	"(Record API) nlapiMergeTemplate": {
 		"prefix": "nlapiMergeTemplate",
 		"body": [
-			"nlapiMergeTemplate(${1:id}, ${2:baseType}, ${3:baseId}, ${4:altType}, ${5:altId}, ${6:fields});"
+			"nlapiMergeTemplate(${1:id}, ${2:\"baseType\"}, ${3:baseId}, ${4:\"altType\"}, ${5:altId}, ${6:{fields\\}}); //Deprecated Since Version 2008 Release 1"
 		],
 		"description": "This API is deprecated as of NetSuite Version 2008 Release 1. However, it continues to be supported. This function will not be enhanced in future versions of NetSuite."
 	},
-	"nlapiPrintRecord": {
+	"(Record API) nlapiPrintRecord": {
 		"prefix": "nlapiPrintRecord",
 		"body": [
-			"nlapiPrintRecord(${1:type}, ${2:id}, ${3:model}, ${4:properties}, ${5:incustlocale});"
+			"var file = nlapiPrintRecord(${1|type,\"TRANSACTION\",\"STATEMENT\",\"PACKINGSLIP\",\"PICKINGTICKET\",\"BILLOFMATERIAL\"|}, ${2:id}, ${3|mode,\"PDF\",\"HTML\",\"DEFAULT\"|}, ${4:{properties\\}}, ${5|incustlocale,true,false|});"
 		],
 		"description": "Returns an nlobjFile object containing the PDF or HTML document. This API is supported in user event scheduled, and Suitelet scripts."
 	},
-	"nlapiSubmitCSVImport": {
+	"(Record API) nlapiSubmitCSVImport": {
 		"prefix": "nlapiSubmitCSVImport",
 		"body": [
-			"nlapiSubmitCSVImport(${1:nlobjCSVImport});"
+			"var idFile = nlapiSubmitCSVImport(${1:csvImport});"
 		],
 		"description": "Submits a CSV import job to asynchronously import record data into NetSuite."
 	},
-	"nlapiSubmitRecord": {
+	"(Record API) nlapiSubmitRecord": {
 		"prefix": "nlapiSubmitRecord",
 		"body": [
-			"nlapiSubmitRecord(${1:record}, ${2:doSourcing}, ${3:ignoreMandatoryFields});"
+			"var idRecord = nlapiSubmitRecord(${1:record}, ${2|doSourcing,true,false|}, ${3|ignoreMandatoryFields,true,false|});"
 		],
 		"description": "Submits and commits new records or changes applied to an existing record and returns the internalId for the committed record"
 	},
-	"nlapiTransformRecord": {
+	"(Record API) nlapiTransformRecord": {
 		"prefix": "nlapiTransformRecord",
 		"body": [
-			"nlapiTransformRecord(${1:type}, ${2:id}, ${3:transformType}, ${4:transformValues});"
+			"nlapiTransformRecord(${1|type,\"assemblybuild\",\"assemblyitem\",\"cashsale\",\"creditmemo\",\"customer\",\"customerdeposit\",\"customerpayment\",\"customerpaymentauthorization\",\"custompurchasetransaction\",\"customsalestransaction\",\"customsaletransaction\",\"employee\",\"estimate\",\"intercompanytransferorder\",\"invoice\",\"job\",\"lead\",\"opportunity\",\"prospect\",\"purchaseorder\",\"purchaserequisition\",\"requestforquote\",\"returnauthorization\",\"revenuecontract\",\"salesorder\",\"transferorder\",\"vendor\",\"vendorbill\",\"vendorprepayment\",\"vendorrequestforquote\",\"vendorreturnauthorization\",\"workorder\"|}, ${2:id}, ${3|transformType,\"assemblybuild\",\"assemblyunbuild\",\"cashrefund\",\"cashsale\",\"creditmemo\",\"customer\",\"customerdeposit\",\"customerpayment\",\"customerrefund\",\"custompurchasetransaction\",\"customsalestransaction\",\"customsaletransaction\",\"depositapplication\",\"estimate\",\"expensereport\",\"fulfillmentrequest\",\"invoice\",\"itemfulfillment\",\"itemreceipt\",\"opportunity\",\"ownershiptransfer\",\"purchasecontract\",\"purchaseorder\",\"returnauthorization\",\"revenuecommitment\",\"revenuecommitmentreversal\",\"revenuecontract\",\"salesorder\",\"storepickupfulfillment\",\"timebill\",\"vendor\",\"vendorbill\",\"vendorcredit\",\"vendorpayment\",\"vendorprepaymentapplication\",\"vendorrequestforquote\",\"vendorreturnauthorization\",\"workorder\",\"workorderclose\",\"workordercompletion\",\"workorderissue\"|}, ${4:{transformValues\\}});",
+			"//Form more information https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_N3027360.html"
 		],
 		"description": "Initializes a new record using data from an existing record of a different type and returns an nlobjRecord."
 	},
-	"nlapiVoidTransaction": {
+	"(Record API) nlapiVoidTransaction": {
 		"prefix": "nlapiVoidTransaction",
 		"body": [
-			"nlapiVoidTransaction(${1:transactionType}, ${2:recordId});"
+			"nlapiVoidTransaction(${1|transactionType,\"cashrefund\",\"cashsale\",\"creditmemo\",\"customerdeposit\",\"customerpayment\",\"customerrefund\",\"estimate\",\"expensereport\",\"intercompanyjournalentry\",\"invoice\",\"journalentry\",\"paycheckjournal\",\"returnauthorization\",\"salesorder\",\"transferorder\",\"vendorbill\",\"vendorcredit\",\"vendorpayment\",\"vendorreturnauthorization\",\"workorder\"|}, ${2:recordId});",
+			"//Form more information https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_N3027360.html"
 		],
 		"description": "When you void a transaction, its total and all its line items are set to zero, but the transaction is not removed from the system."
 	},
 	//**********************************************
 	//*************** Subrecord APIs ***************
 	//**********************************************
-	"nlapiCreateCurrentLineItemSubrecord": {
+	"(Subrecord API) nlapiCreateCurrentLineItemSubrecord": {
 		"prefix": "nlapiCreateCurrentLineItemSubrecord",
 		"body": [
-			"nlapiCreateCurrentLineItemSubrecord(${1:sublist}, ${2:fldname});"
+			"var subrecord = nlapiCreateCurrentLineItemSubrecord(${1:\"sublist\"}, ${2:\"fldname\"});"
 		],
 		"description": "Returns a nlobjSubrecord object. Use this API to create a subrecord from a sublist field on the parent record."
 	},
-	"nlapiCreateSubrecord": {
+	"(Subrecord API) nlapiCreateSubrecord": {
 		"prefix": "nlapiCreateSubrecord",
 		"body": [
-			"nlapiCreateSubrecord(${1:fldname});"
+			"var subrecord = nlapiCreateSubrecord(${1:\"fldname\"});"
 		],
 		"description": "Returns a nlobjSubrecord object. Use this API to create a subrecord from a body field on the parent record."
 	},
-	"nlapiEditCurrentLineItemSubrecord": {
+	"(Subrecord API) nlapiEditCurrentLineItemSubrecord": {
 		"prefix": "nlapiEditCurrentLineItemSubrecord",
 		"body": [
-			"nlapiEditCurrentLineItemSubrecord(${1:sublist}, ${2:fldname});"
+			"var subrecord = nlapiEditCurrentLineItemSubrecord(${1:\"sublist\"}, ${2:\"fldname\"});"
 		],
 		"description": "Returns a nlobjSubrecord object. Use this API to edit a subrecord from a sublist field on the parent record."
 	},
-	"nlapiEditSubrecord": {
+	"(Subrecord API) nlapiEditSubrecord": {
 		"prefix": "nlapiEditSubrecord",
 		"body": [
-			"nlapiEditSubrecord(${1:fldname});"
+			"var subrecord = nlapiEditSubrecord(${1:\"fldname\"});"
 		],
 		"description": "Returns a nlobjSubrecord object. Use this API to edit a subrecord from a body field on the parent record."
 	},
-	"nlapiRemoveCurrentLineItemSubrecord": {
+	"(Subrecord API) nlapiRemoveCurrentLineItemSubrecord": {
 		"prefix": "nlapiRemoveCurrentLineItemSubrecord",
 		"body": [
-			"nlapiRemoveCurrentLineItemSubrecord(${1:sublist}, ${2:fldname});"
+			"var subrecord = nlapiRemoveCurrentLineItemSubrecord(${1:\"sublist\"}, ${2:\"fldname\"});"
 		],
 		"description": "Returns a nlobjSubrecord object. Use this API to remove a subrecord from a sublist field on the parent record."
 	},
-	"nlapiRemoveSubrecord": {
+	"(Subrecord API) nlapiRemoveSubrecord": {
 		"prefix": "nlapiRemoveSubrecord",
 		"body": [
-			"nlapiRemoveSubrecord(${1:fldname});"
+			"var subrecord = nlapiRemoveSubrecord(${1:\"fldname\"});"
 		],
 		"description": "Returns a nlobjSubrecord object. Use this API to remove a subrecord from a body field on the parent record."
 	},
-	"nlapiViewCurrentLineItemSubrecord": {
+	"(Subrecord API) nlapiViewCurrentLineItemSubrecord": {
 		"prefix": "nlapiViewCurrentLineItemSubrecord",
 		"body": [
-			"nlapiViewCurrentLineItemSubrecord(${1:sublist}, ${2:fldname});"
+			"var subrecord = nlapiViewCurrentLineItemSubrecord(${1:\"sublist\"}, ${2:\"fldname\"});"
 		],
 		"description": "Returns a nlobjSubrecord object. Use this API to view a subrecord from a sublist field on the parent record."
 	},
-	"nlapiViewLineItemSubrecord": {
+	"(Subrecord API) nlapiViewLineItemSubrecord": {
 		"prefix": "nlapiViewLineItemSubrecord",
 		"body": [
-			"nlapiViewLineItemSubrecord(${1:sublist}, ${2:fldname}, ${3:linenum});"
+			"var subrecord = nlapiViewLineItemSubrecord(${1:\"sublist\"}, ${2:\"fldname\"}, ${3:linenum});"
 		],
 		"description": "Returns a nlobjSubrecord object. Use this API to view a subrecord from a sublist field on the parent record."
 	},
-	"nlapiViewSubrecord": {
+	"(Subrecord API) nlapiViewSubrecord": {
 		"prefix": "nlapiViewSubrecord",
 		"body": [
-			"nlapiViewSubrecord(${1:fldname});"
+			"var subrecord = nlapiViewSubrecord(${1:\"fldname\"});"
 		],
 		"description": "Returns a nlobjSubrecord object. Use this API to view a subrecord from a body field on the parent record."
 	},
 	//**********************************************
 	//***************** Field APIs ****************
 	//**********************************************
-	"nlapiDisableField": {
+	"(Field API) nlapiDisableField": {
 		"prefix": "nlapiDisableField(fldnam, val)",
 		"body": [
-			"nlapiDisableField(${1:fldnam}, ${2:val});"
+			"nlapiDisableField(${1:\"fldnam\"}, ${2|val,true,false|});"
 		],
 		"description": "Sets the field to disabled or enabled based on the value (true or false). This API is supported in client scripts only."
 	},
-	
-	"nlapiGetFieldText": {
+	"(Field API) nlapiGetFieldText": {
 		"prefix": "nlapiGetFieldText",
 		"body": [
-			"nlapiGetFieldText(${1:fldnam});"
+			"var fldText = nlapiGetFieldText(${1:\"fldnam\"});"
 		],
 		"description": "Use this API to get the text value (rather than the internal ID value) of a field. This API is available in client and user event scripts only"
 	},
-	
-	"nlapiGetFieldTexts": {
+	"(Field API) nlapiGetFieldTexts": {
 		"prefix": "nlapiGetFieldTexts",
 		"body": [
-			"nlapiGetFieldTexts(${1:fldnam});"
+			"var fldTexts = nlapiGetFieldTexts(${1:\"fldnam\"});"
 		],
 		"description": "Returns the display names for a multiselect field corresponding to the current selection. This API is available in client and user event scripts only"
 	},
-	
-	"nlapiGetFieldValue": {
+	"(Field API) nlapiGetFieldValue": {
 		"prefix": "nlapiGetFieldValue",
 		"body": [
-			"nlapiGetFieldValue(${1:fldnam});"
+			"var fldValue = nlapiGetFieldValue(${1:\"fldnam\"});"
 		],
 		"description": "Use this function to get the internal ID of a field."
 	},
-	
-	"nlapiGetFieldValues": {
+	"(Field API) nlapiGetFieldValues": {
 		"prefix": "nlapiGetFieldValues",
 		"body": [
-			"nlapiGetFieldValues(${1:fldnam});"
+			"var fldValues = nlapiGetFieldValues(${1:\"fldnam\"});"
 		],
 		"description": "Use this function to get an array of internal ID values for a multiselect field."
 	},
-	
-	"nlapiInsertSelectOption": {
+	"(Field API) nlapiInsertSelectOption": {
 		"prefix": "nlapiInsertSelectOption",
 		"body": [
-			"nlapiInsertSelectOption(${1:fldnam}, ${2:value}, ${3:text}, ${4:selected});"
+			"nlapiInsertSelectOption(${1:\"fldnam\"}, ${2:value}, ${3:\"text\"}, ${4|selected,true,false|});"
 		],
 		"description": "Adds a select option to a select/multiselect field added via script."
 	},
-	
-	"nlapiLookupField": {
+	"(Field API) nlapiLookupField": {
 		"prefix": "nlapiLookupField",
 		"body": [
-			"nlapiLookupField(${1:type}, ${2:id}, ${3:fields}, ${4:text});"
+			"var value = nlapiLookupField(${1:\"type\"}, ${2:id}, ${3:\"fields\"}, ${4:\"text\"});"
 		],
 		"description": "Performs a search for one or more body fields on a record."
 	},
-	
-	"nlapiRemoveSelectOption": {
+	"(Field API) nlapiRemoveSelectOption": {
 		"prefix": "nlapiRemoveSelectOption",
 		"body": [
-			"nlapiRemoveSelectOption(${1:fldnam}, ${2:value});"
+			"nlapiRemoveSelectOption(${1:\"fldnam\"}, ${2:\"value\"});"
 		],
 		"description": "Removes a single select option from a select or multiselect field added via script"
 	},
-	
-	"nlapiSetFieldText": {
+	"(Field API) nlapiSetFieldText": {
 		"prefix": "nlapiSetFieldText",
 		"body": [
-			"nlapiSetFieldText(${1:fldname}, ${2:txt}, ${3:firefieldchanged}, ${4:synchronous});"
+			"nlapiSetFieldText(${1:\"fldname\"}, ${2:\"txt\"}, ${3|firefieldchanged,true,false|}, ${4|synchronous,true,false|});"
 		],
 		"description": "Sets the value of a select field on the current record using the UI display name."
 	},
-	
-	"nlapiSetFieldTexts": {
+	"(Field API) nlapiSetFieldTexts": {
 		"prefix": "nlapiSetFieldTexts",
 		"body": [
-			"nlapiSetFieldTexts(${1:fldname}, ${2:txts}, ${3:firefieldchanged}, ${4:synchronous});"
+			"nlapiSetFieldTexts(${1:\"fldname\"}, ${2:txts}, ${3|firefieldchanged,true,false|}, ${4|synchronous,true,false|});"
 		],
 		"description": "Sets the values of a multi-select field on the current record using the UI display names."
 	},
-	
-	"nlapiSetFieldValue": {
+	"(Field API) nlapiSetFieldValue": {
 		"prefix": "nlapiSetFieldValue",
 		"body": [
-			"nlapiSetFieldValue(${1:fldname}, ${2:value}, ${3:firefieldchanged}, ${4:synchronous});"
+			"nlapiSetFieldValue(${1:\"fldname\"}, ${2:value}, ${3|firefieldchanged,true,false|}, ${4|synchronous,true,false|});"
 		],
 		"description": "Sets the value of a body field."
 	},
-	
-	"nlapiSetFieldValues": {
+	"(Field API) nlapiSetFieldValues": {
 		"prefix": "nlapiSetFieldValues",
 		"body": [
-			"nlapiSetFieldValues(${1:fldname}, ${2:value}, ${3:firefieldchanged}, ${4:synchronous});"
+			"nlapiSetFieldValues(${1:\"fldname\"}, ${2:value}, ${3|firefieldchanged,true,false|}, ${4|synchronous,true,false|});"
 		],
 		"description": "Sets the value of a multiselect body field on a current record."
 	},
-	
-	"nlapiSubmitField": {
+	"(Field API) nlapiSubmitField": {
 		"prefix": "nlapiSubmitField",
 		"body": [
-			"nlapiSubmitField(${1:type}, ${2:id}, ${3:fields}, ${4:values}, ${5:doSourcing});"
+			"nlapiSubmitField(${1:\"type\"}, ${2:id}, ${3:\"fields\"}, ${4:values}, ${5|doSourcing,true,false|});"
 		],
 		"description": "Updates one or more body fields or custom fields on a record."
 	},
-
 	//**********************************************
-    //***************** Sublist APIs ****************
-    //**********************************************
-
-
-	"nlapiCancelLineItem": {
+	//***************** Sublist APIs ****************
+	//**********************************************
+	"(Sublist API) nlapiCancelLineItem": {
 		"prefix": "nlapiCancelLineItem",
 		"body": [
-			"nlapiCancelLineItem(${1:type});"
+			"nlapiCancelLineItem(${1:\"type\"});"
 		],
 		"description": "Cancels any uncommited changes to the current line of a sublist."
 	},
-	
-	"nlapiCommitLineItem": {
+	"(Sublist API) nlapiCommitLineItem": {
 		"prefix": "nlapiCommitLineItem",
 		"body": [
-			"nlapiCommitLineItem(${1:type});"
+			"nlapiCommitLineItem(${1:\"type\"});"
 		],
 		"description": "Saves/commits the changes to the current line in a sublist. "
 	},
-	
-	"nlapiDisableLineItemField": {
+	"(Sublist API) nlapiDisableLineItemField": {
 		"prefix": "nlapiDisableLineItemField",
 		"body": [
-			"nlapiDisableLineItemField(${1:type}, ${2:fldnam}, ${3:val});"
+			"nlapiDisableLineItemField(${1:\"type\"}, ${2:\"fldnam\"}, ${3|val,true,false|});"
 		],
 		"description": "Sets the line item field of a sublist to disabled or enabled based on the value (true or false)."
 	},
-	
-	"nlapiFindLineItemMatrixValue": {
+	"(Sublist API) nlapiFindLineItemMatrixValue": {
 		"prefix": "nlapiFindLineItemMatrixValue",
 		"body": [
-			"nlapiFindLineItemMatrixValue(${1:type}, ${2:fldnam}, ${3:val}, ${3:column});"
+			"var lineNumber = nlapiFindLineItemMatrixValue(${1:\"type\"}, ${2:\"fldnam\"}, ${3:\"val\"}, ${3:column});"
 		],
 		"description": "This API returns the line number of a particular price in a column."
 	},
-	
-	"nlapiFindLineItemValue": {
+	"(Sublist API) nlapiFindLineItemValue": {
 		"prefix": "nlapiFindLineItemValue",
 		"body": [
-			"nlapiFindLineItemValue(${1:type}, ${2:fldnam}, ${3:val});"
+			"var lineNumber = nlapiFindLineItemValue(${1:\"type\"}, ${2:\"fldnam\"}, ${3:\"val\"});"
 		],
 		"description": "Use this API to find the line number of a specific field in a sublist."
 	},
-	
-	"nlapiGetCurrentLineItemIndex": {
+	"(Sublist API) nlapiGetCurrentLineItemIndex": {
 		"prefix": "nlapiGetCurrentLineItemIndex",
 		"body": [
-			"nlapiGetCurrentLineItemIndex(${1:type});"
+			"var value = nlapiGetCurrentLineItemIndex(${1:\"type\"});"
 		],
 		"description": "Returns the line number of the currently selected line in a group."
 	},
-	
-	"nlapiGetCurrentLineItemMatrixValue": {
+	"(Sublist API) nlapiGetCurrentLineItemMatrixValue": {
 		"prefix": "nlapiGetCurrentLineItemMatrixValue",
 		"body": [
-			"nlapiGetCurrentLineItemMatrixValue(${1:type}, ${2:fldnam}, ${3:column});"
+			"var value = nlapiGetCurrentLineItemMatrixValue(${1:\"type\"}, ${2:\"fldnam\"}, ${3:column});"
 		],
 		"description": "Use this API to get the value of the currently selected matrix field."
 	},
-	
-	"nlapiGetCurrentLineItemText": {
+	"(Sublist API) nlapiGetCurrentLineItemText": {
 		"prefix": "nlapiGetCurrentLineItemText",
 		"body": [
-			"nlapiGetCurrentLineItemText(${1:type}, ${2:fldnam});"
+			"var itemText = nlapiGetCurrentLineItemText(${1:\"type\"}, ${2:\"fldnam\"});"
 		],
 		"description": "Returns the display name (the UI label) of a select field (based on its current selection) on the currently selected line."
 	},
-	
-	"nlapiGetCurrentLineItemValue": {
+	"(Sublist API) nlapiGetCurrentLineItemValue": {
 		"prefix": "nlapiGetCurrentLineItemValue",
 		"body": [
-			"nlapiGetCurrentLineItemValue(${1:type}, ${2:fldnam});"
+			"var itemValue = nlapiGetCurrentLineItemValue(${1:\"type\"}, ${2:\"fldnam\"});"
 		],
 		"description": "Returns the value of a sublist field on the currently selected line."
 	},
-	
-	"nlapiGetCurrentLineItemValues": {
+	"(Sublist API) nlapiGetCurrentLineItemValues": {
 		"prefix": "nlapiGetCurrentLineItemValues",
 		"body": [
-			"nlapiGetCurrentLineItemValues(${1:type}, ${2:fldnam});"
+			"var itemValues = nlapiGetCurrentLineItemValues(${1:\"type\"}, ${2:\"fldnam\"});"
 		],
 		"description": "Returns the values of a multiselect sublist field on the currently selected line."
 	},
-	
-	"nlapiGetLineItemCount": {
+	"(Sublist API) nlapiGetLineItemCount": {
 		"prefix": "nlapiGetLineItemCount",
 		"body": [
-			"nlapiGetLineItemCount(${1:type});"
+			"var lineNum = nlapiGetLineItemCount(${1:\"type\"});"
 		],
 		"description": "Use this API to determine the number of line items on a sublist."
 	},
-	
-	"nlapiGetLineItemField": {
+	"(Sublist API) nlapiGetLineItemField": {
 		"prefix": "nlapiGetLineItemField",
 		"body": [
-			"nlapiGetLineItemField(${1:type}, ${2:fldnam}, ${3:linenum});"
+			"var field = nlapiGetLineItemField(${1:\"type\"}, ${2:\"fldnam\"}, ${3:linenum});"
 		],
 		"description": "Use this function to obtain sublist (line item) field metadata."
 	},
-	
-	"nlapiGetLineItemMatrixField": {
+	"(Sublist API) nlapiGetLineItemMatrixField": {
 		"prefix": "nlapiGetLineItemMatrixField",
 		"body": [
-			"nlapiGetLineItemMatrixField(${1:type}, ${2:fldnam}, ${3:linenum}, ${4:column});"
+			"var field = nlapiGetLineItemMatrixField(${1:\"type\"}, ${2:\"fldnam\"}, ${3:linenum}, ${4:column});"
 		],
 		"description": "Use this API to obtain metadata for a field that appears in a matrix sublist."
 	},
-	
-	"nlapiGetLineItemMatrixValue": {
+	"(Sublist API) nlapiGetLineItemMatrixValue": {
 		"prefix": "nlapiGetLineItemMatrixValue",
 		"body": [
-			"nlapiGetLineItemMatrixValue(${1:type}, ${2:fldnam}, ${3:linenum}, ${4:column});"
+			"var value = nlapiGetLineItemMatrixValue(${1:\"type\"}, ${2:\"fldnam\"}, ${3:linenum}, ${4:column});"
 		],
 		"description": "Use this API to get the value of a matrix field that appears on a specific line in a specific column."
 	},
-	
-	"nlapiGetLineItemText": {
+	"(Sublist API) nlapiGetLineItemText": {
 		"prefix": "nlapiGetLineItemText",
 		"body": [
-			"nlapiGetLineItemText(${1:type}, ${2:fldnam}, ${3:linenum});"
+			"var itemText = nlapiGetLineItemText(${1:\"type\"}, ${2:\"fldnam\"}, ${3:linenum});"
 		],
 		"description": "Returns the display name of a select field (based on its current selection) in a sublist."
 	},
-	
-	"nlapiGetLineItemValue": {
+	"(Sublist API) nlapiGetLineItemValue": {
 		"prefix": "nlapiGetLineItemValue",
 		"body": [
-			"nlapiGetLineItemValue(${1:type}, ${2:fldnam}, ${3:linenum});"
+			"var itemValue = nlapiGetLineItemValue(${1:\"type\"}, ${2:\"fldnam\"}, ${3:linenum});"
 		],
 		"description": "Available only in client and user event SuiteScripts. "
 	},
-	
-	"nlapiGetLineItemValues": {
+	"(Sublist API) nlapiGetLineItemValues": {
 		"prefix": "nlapiGetLineItemValues",
 		"body": [
-			"nlapiGetLineItemValues(${1:type}, ${2:fldnam}, ${3:linenum});"
+			"var itemValues = nlapiGetLineItemValues(${1:\"type\"}, ${2:\"fldnam\"}, ${3:linenum});"
 		],
 		"description": "Returns the values of a multiselect sublist field on a selected line."
 	},
-	
-	"nlapiGetMatrixCount": {
+	"(Sublist API) nlapiGetMatrixCount": {
 		"prefix": "nlapiGetMatrixCount",
 		"body": [
-			"nlapiGetMatrixCount(${1:type}, ${2:fldnam});"
+			"var count = nlapiGetMatrixCount(${1:\"type\"}, ${2:\"fldnam\"});"
 		],
 		"description": "Use this API in a matrix sublist to get the number of columns for a specific matrix field."
 	},
-	
-	"nlapiGetMatrixField": {
+	"(Sublist API) nlapiGetMatrixField": {
 		"prefix": "nlapiGetMatrixField",
 		"body": [
-			"nlapiGetMatrixField(${1:type}, ${2:fldnam}, ${3:column});"
+			"var field = nlapiGetMatrixField(${1:\"type\"}, ${2:\"fldnam\"}, ${3:column});"
 		],
 		"description": "Use this API to get field metadata for a matrix “header” field in a matrix sublist."
 	},
-	
-	"nlapiGetMatrixValue": {
+	"(Sublist API) nlapiGetMatrixValue": {
 		"prefix": "nlapiGetMatrixValue",
 		"body": [
-			"nlapiGetMatrixValue(${1:type}, ${2:fldnam}, ${3:column});"
+			"var value = nlapiGetMatrixValue(${1:\"type\"}, ${2:\"fldnam\"}, ${3:column});"
 		],
 		"description": "Use this API to get the value of a matrix “header” field in a matrix sublist."
 	},
-	
-	"nlapiInsertLineItem": {
+	"(Sublist API) nlapiInsertLineItem": {
 		"prefix": "nlapiInsertLineItem",
 		"body": [
-			"nlapiInsertLineItem(${1:type}, ${2:line});"
+			"nlapiInsertLineItem(${1:\"type\"}, ${2:line});"
 		],
 		"description": "Inserts a line above the currently selected line in a sublist."
 	},
-	
-	"nlapiInsertLineItemOption": {
+	"(Sublist API) nlapiInsertLineItemOption": {
 		"prefix": "nlapiInsertLineItemOption",
 		"body": [
-			"nlapiInsertLineItemOption(${1:type}, ${2:fldnam}, ${3:value}, ${4:text}, ${5:select});"
+			"nlapiInsertLineItemOption(${1:\"type\"}, ${2:\"fldnam\"}, ${3:value}, ${4:\"text\"}, ${5|selected,true,false|});"
 		],
 		"description": "Adds a select option to a select/multiselect field that was added through scripting."
 	},
-	
-	"nlapiIsLineItemChanged": {
+	"(Sublist API) nlapiIsLineItemChanged": {
 		"prefix": "nlapiIsLineItemChanged",
 		"body": [
-			"nlapiIsLineItemChanged(${1:type});"
+			"var wasEdited = nlapiIsLineItemChanged(${1:\"type\"});"
 		],
 		"description": "Determines whether any changes have been made to a sublist."
 	},
-	
-	"nlapiRefreshLineItems": {
+	"(Sublist API) nlapiRefreshLineItems": {
 		"prefix": "nlapiRefreshLineItems",
 		"body": [
-			"nlapiRefreshLineItems(${1:type});"
+			"nlapiRefreshLineItems(${1:\"type\"});"
 		],
 		"description": "Makes a server call to refresh staticlist (read-only) sublists."
 	},
-	
-	"nlapiRemoveLineItem": {
+	"(Sublist API) nlapiRemoveLineItem": {
 		"prefix": "nlapiRemoveLineItem",
 		"body": [
-			"nlapiRemoveLineItem(${1:type, ${2:line});"
+			"nlapiRemoveLineItem(${1:\"type\", ${2:line});"
 		],
 		"description": "Removes the currently selected line in a sublist."
 	},
-	
-	"nlapiRemoveLineItemOption": {
+	"(Sublist API) nlapiRemoveLineItemOption": {
 		"prefix": "nlapiRemoveLineItemOption",
 		"body": [
-			"nlapiRemoveLineItemOption(${1:type, ${2:fldnam}, ${3:value});"
+			"nlapiRemoveLineItemOption(${1:\"type\", ${2:\"fldnam\"}, ${3:\"value\"});"
 		],
 		"description": "Removes a single select option from a select or multiselect line item field added through a script."
 	},
-	
-	"nlapiSelectLineItem": {
+	"(Sublist API) nlapiSelectLineItem": {
 		"prefix": "nlapiSelectLineItem",
 		"body": [
-			"nlapiSelectLineItem(${1:type, ${2:linenum});"
+			"nlapiSelectLineItem(${1:\"type\", ${2:linenum});"
 		],
 		"description": "Selects an existing line in a sublist."
 	},
-	
-	"nlapiSelectNewLineItem": {
+	"(Sublist API) nlapiSelectNewLineItem": {
 		"prefix": "nlapiSelectNewLineItem",
 		"body": [
-			"nlapiSelectNewLineItem(${1:type});"
+			"nlapiSelectNewLineItem(${1:\"type\"});"
 		],
 		"description": "Use this function if you want to set a value on a sublist line that does not currently exist"
 	},
-	
-	"nlapiSetCurrentLineItemMatrixValue": {
+	"(Sublist API) nlapiSetCurrentLineItemMatrixValue": {
 		"prefix": "nlapiSetCurrentLineItemMatrixValue",
 		"body": [
-			"nlapiSetCurrentLineItemMatrixValue(${1:type}, ${2:fldnam}, ${3:column}, ${4:value}, ${5:firefieldchanged}, ${6:synchronous});"
+			"nlapiSetCurrentLineItemMatrixValue(${1:\"type\"}, ${2:\"fldnam\"}, ${3:column}, ${4:value}, ${5|firefieldchanged,true,false|}, ${6|synchronous,true,false|});"
 		],
 		"description": "Adds a select option to a select/multiselect field that was added through scripting."
 	},
-	
-	"nlapiSetCurrentLineItemText": {
+	"(Sublist API) nlapiSetCurrentLineItemText": {
 		"prefix": "nlapiSetCurrentLineItemText",
 		"body": [
-			"nlapiSetCurrentLineItemText(${1:type}, ${2:fldnam}, ${3:text}, ${4:firefieldchanged}, ${5:synchronous});"
+			"nlapiSetCurrentLineItemText(${1:\"type\"}, ${2:\"fldnam\"}, ${3:\"text\"}, ${4|firefieldchanged,true,false|}, ${5|synchronous,true,false|});"
 		],
 		"description": "Sets the value of a select field on the currently selected line using the display name."
 	},
-	
-	"nlapiSetCurrentLineItemValue": {
+	"(Sublist API) nlapiSetCurrentLineItemValue": {
 		"prefix": "nlapiSetCurrentLineItemValue",
 		"body": [
-			"nlapiSetCurrentLineItemValue(${1:type}, ${2:fldnam}, ${3:value}, ${4:firefieldchanged}, ${5:synchronous});"
+			"nlapiSetCurrentLineItemValue(${1:\"type\"}, ${2:\"fldnam\"}, ${3:value}, ${4|firefieldchanged,true,false|}, ${5|synchronous,true,false|});"
 		],
 		"description": "Sets the value of the line-item field before it has been added to the form."
 	},
-	
-	"nlapiSetCurrentLineItemValues": {
+	"(Sublist API) nlapiSetCurrentLineItemValues": {
 		"prefix": "nlapiSetCurrentLineItemValues",
 		"body": [
-			"nlapiSetCurrentLineItemValues(${1:type}, ${2:fldnam}, ${3:values}, ${4:firefieldchanged}, ${5:synchronous});"
+			"nlapiSetCurrentLineItemValues(${1:\"type\"}, ${2:\"fldnam\"}, ${3:values}, ${4|firefieldchanged,true,false|}, ${5|synchronous,true,false|});"
 		],
 		"description": "Sets the values for a multi-select sublist field."
 	},
-	
-	"nlapiSetLineItemValue": {
+	"(Sublist API) nlapiSetLineItemValue": {
 		"prefix": "nlapiSetLineItemValue",
 		"body": [
-			"nlapiSetLineItemValue(${1:type}, ${2:fldnam}, ${3:linenum}, ${4:value});"
+			"nlapiSetLineItemValue(${1:\"type\"}, ${2:\"fldnam\"}, ${3:linenum}, ${4:\"value\"});"
 		],
 		"description": "Sets the value of a sublist field on the current, new record."
 	},
-	
-	"nlapiSetMatrixValue": {
+	"(Sublist API) nlapiSetMatrixValue": {
 		"prefix": "nlapiSetMatrixValue",
 		"body": [
-			"nlapiSetMatrixValue(${1:type}, ${2:fldnam}, ${3:column}, ${4:value}, ${5:firefieldchanged}, ${6:synchronous});"
+			"nlapiSetMatrixValue(${1:\"type\"}, ${2:\"fldnam\"}, ${3:column}, ${4:\"value\"}, ${5|firefieldchanged,true,false|}, ${6|synchronous,true,false|});"
 		],
 		"description": "This API is used to set a header field in a matrix sublist."
 	},
 	//**********************************************
-    //***************** Search APIs ****************
-    //**********************************************
-
-	"nlapiCreateSearch": {
+	//***************** Search APIs ****************
+	//**********************************************
+	"(Search API) nlapiCreateSearch": {
 		"prefix": "nlapiCreateSearch",
 		"body": [
-			"nlapiCreateSearch(${1:type}, ${2:filters}, ${3:columns});"
+			"var search = nlapiCreateSearch(${1:\"type\"}, ${2:filters}, ${3:columns});"
 		],
 		"description": "Creates a new search."
 	},
-
-	"nlapiLoadSearch": {
+	"(Search API) nlapiLoadSearch": {
 		"prefix": "nlapiLoadSearch",
 		"body": [
-			"nlapiLoadSearch(${1:type}, ${2:id});"
+			"var search = nlapiLoadSearch(${1:\"type\"}, ${2:id});"
 		],
 		"description": "Loads an existing saved search."
 	},
-
-	"nlapiSearchDuplicate": {
+	"(Search API) nlapiSearchDuplicate": {
 		"prefix": "nlapiSearchDuplicate",
 		"body": [
-			"nlapiSearchDuplicate(${1:type}, ${2:fields}, ${3:id});"
+			"var searchResult = nlapiSearchDuplicate(${1:\"type\"}, ${2:fields}, ${3:id});"
 		],
 		"description": "Performs a search for duplicate records based on the account's Duplicate Detection configuration."
 	},
-
-	"nlapiSearchGlobal": {
+	"(Search API) nlapiSearchGlobal": {
 		"prefix": "nlapiSearchGlobal",
 		"body": [
-			"nlapiSearchGlobal(${1:keywords});"
+			"var searchResult = nlapiSearchGlobal(${1:\"keywords\"});"
 		],
 		"description": "Performs a global search against a single keyword or multiple keywords. "
 	},
-
-	"nlapiSearchRecord": {
+	"(Search API) nlapiSearchRecord": {
 		"prefix": "nlapiSearchRecord",
 		"body": [
-			"nlapiSearchRecord(${1:type}, ${2:id}, ${3:filters}, ${4:columns});"
+			"var searchResult = nlapiSearchRecord(${1:\"type\"}, ${2:id}, ${3:filters}, ${4:columns});"
 		],
 		"description": "Performs a search using a set of criteria (your search filters) and columns (the results). "
 	},
 	//**********************************************
-    //*************** Scheduling APIs **************
-    //**********************************************
-
-	"nlapiScheduleScript": {
+	//*************** Scheduling APIs **************
+	//**********************************************
+	"(Scheduling API) nlapiScheduleScript": {
 		"prefix": "nlapiScheduleScript",
 		"body": [
-			"nlapiScheduleScript(${1:scriptId}, ${2:deployId}, ${3:params});"
+			"var status = nlapiScheduleScript(${1:\"scriptId\"}, ${2:\"deployId\"}, ${3:params});"
 		],
 		"description": "A call to this API submits a scheduled script for processing."
 	},
-
-	"nlapiSetRecoveryPoint": {
+	"(Scheduling API) nlapiSetRecoveryPoint": {
 		"prefix": "nlapiSetRecoveryPoint",
 		"body": [
-			"nlapiSetRecoveryPoint();"
+			"var status = nlapiSetRecoveryPoint();"
 		],
 		"description": "Creates a recovery point saving the state of the script's execution."
 	},
-
-	"nlapiYieldScript": {
+	"(Scheduling API) nlapiYieldScript": {
 		"prefix": "nlapiYieldScript",
 		"body": [
-			"nlapiYieldScript();"
+			"var status = nlapiYieldScript();"
 		],
 		"description": "Creates a recovery point and, when executed, continues from the recovery point."
 	},
 	//**********************************************
-    //*********** Execution Context APIs ***********
-    //**********************************************
-	
-	"nlapiGetContext": {
+	//*********** Execution Context APIs ***********
+	//**********************************************
+	"(Execution Context API) nlapiGetContext": {
 		"prefix": "nlapiGetContext",
 		"body": [
-			"nlapiGetContext();"
+			"var context = nlapiGetContext();"
 		],
 		"description": "Used to branch scripts depending on the metadata or context of the execution."
 	},
-
-	"nlapiGetDepartment": {
+	"(Execution Context API) nlapiGetDepartment": {
 		"prefix": "nlapiGetDepartment",
 		"body": [
-			"nlapiGetDepartment();"
+			"var idDepartament = nlapiGetDepartment();"
 		],
 		"description": "This API is supported in client, user event, scheduled, portlet, and Suitelet scripts."
 	},
-
-	"nlapiGetLocation": {
+	"(Execution Context API) nlapiGetLocation": {
 		"prefix": "nlapiGetLocation",
 		"body": [
-			"nlapiGetLocation();"
+			"var location = nlapiGetLocation();"
 		],
 		"description": "Returns the integer value of the current user's location."
 	},
-
-	"nlapiGetRole": {
+	"(Execution Context API) nlapiGetRole": {
 		"prefix": "nlapiGetRole",
 		"body": [
-			"nlapiGetRole();"
+			"var idRole = nlapiGetRole();"
 		],
 		"description": "Returns the internalId for the current user's role."
 	},
-
-	"nlapiGetSubsidiary": {
+	"(Execution Context API) nlapiGetSubsidiary": {
 		"prefix": "nlapiGetSubsidiary",
 		"body": [
-			"nlapiGetSubsidiary();"
+			"var idSubsidiary = nlapiGetSubsidiary();"
 		],
 		"description": "Returns the internalId for the current user's subsidiary."
 	},
-
-	"nlapiGetUser": {
+	"(Execution Context API) nlapiGetUser": {
 		"prefix": "nlapiGetUser",
 		"body": [
-			"nlapiGetUser();"
+			"var idUser = nlapiGetUser();"
 		],
 		"description": "Returns the internalId of the current NetSuite user."
 	},
-
-	"nlapiLogExecution": {
+	"(Execution Context API) nlapiLogExecution": {
 		"prefix": "nlapiLogExecution",
 		"body": [
-			"nlapiLogExecution(${1:type}, ${2:title}, ${3:details});"
+			"nlapiLogExecution(${1|type,\"DEBUG\",\"AUDIT\",\"ERROR\",\"EMERGENCY\"|}, ${2:\"title\"}, ${3:\"details\"});"
 		],
 		"description": "This API is supported in all server-side and record-level (global) client scripts."
 	},
 	//**********************************************
-    //*************** UI Builder APIs **************
-    //**********************************************
-	"nlapiCreateAssistant": {
+	//*************** UI Builder APIs **************
+	//**********************************************
+	"(UI Builder API) nlapiCreateAssistant": {
 		"prefix": "nlapiCreateAssistant",
 		"body": [
-			"nlapiCreateAssistant(${1:title}, ${2:hideHeader});"
+			"var assistant = nlapiCreateAssistant(${1:\"title\"}, ${2|hideHeader,true,false|});"
 		],
 		"description": "Use this function to return a reference to an nlobjAssistant object."
 	},
-
-	"nlapiCreateForm": {
+	"(UI Builder API) nlapiCreateForm": {
 		"prefix": "nlapiCreateForm",
 		"body": [
-			"nlapiCreateForm(${1:title}, ${2:hideNavbar});"
+			"var form = nlapiCreateForm(${1:\"title\"}, ${2|hideHeader,true,false|});"
 		],
 		"description": "Creates an nlobjForm object which can be used to generate an entry form page."
 	},
-
-	"nlapiCreateList": {
+	"(UI Builder API) nlapiCreateList": {
 		"prefix": "nlapiCreateList",
 		"body": [
-			"nlapiCreateList(${1:title}, ${2:hideNavbar});"
+			"var list = nlapiCreateList(${1:\"title\"}, ${2|hideHeader,true,false|});"
 		],
 		"description": "Creates an nlobjList object used to generate an internal standalone list."
 	},
-
-	"nlapiCreateTemplateRenderer": {
+	"(UI Builder API) nlapiCreateTemplateRenderer": {
 		"prefix": "nlapiCreateTemplateRenderer",
 		"body": [
-			"nlapiCreateTemplateRenderer();"
+			"var templateRenderer = nlapiCreateTemplateRenderer();"
 		],
 		"description": "Creates an nlobjList object used to generate an internal standalone list."
 	},
-
 	//**********************************************
-    //********* Application Navigation APIs ********
-    //**********************************************
-
-	"nlapiRequestURL": {
+	//********* Application Navigation APIs ********
+	//**********************************************
+	"(Application Navigation API) nlapiRequestURL": {
 		"prefix": "nlapiRequestURL",
 		"body": [
-			"nlapiRequestURL(${1:url}, ${2:postdata}, ${3:headers}, ${4:callback}, ${5:httpMethod});"
+			"var response = nlapiRequestURL(${1:\"url\"}, ${2:postdata}, ${3:headers}, ${4:\"httpMethod\"});"
 		],
 		"description": "Requests an HTTP(s) URL (internal or external)."
 	},
-
-	"nlapiRequestURLWithCredentials": {
+	"(Application Navigation API) nlapiRequestURLWithCredentials": {
 		"prefix": "nlapiRequestURL",
 		"body": [
-			"nlapiRequestURL(${1:credentials}, ${2:url}, ${3:postdata}, ${4:headers}, ${5:httpsMethod});"
+			"var response = nlapiRequestURL(${1:credentials}, ${2:\"url\"}, ${3:postdata}, ${4:headers}, ${5:\"httpsMethod\"});"
 		],
 		"description": "Supports the sending of credentials outside of NetSuite."
 	},
-
-	"nlapiResolveURL": {
+	"(Application Navigation API) nlapiResolveURL": {
 		"prefix": "nlapiResolveURL",
 		"body": [
-			"nlapiResolveURL(${1:type}, ${2:identifier}, ${3:id}, ${4:displayMode});"
+			"var url = nlapiResolveURL(${1|type,\"RECORD\",\"TASKLINK\",\"SUITELET\",\"RESTLET\"|}, ${2:\"identifier\"}, ${3:\"id\"}, ${4|displayMode,\"VIEW\",\"EDIT\",\"external\",\"internal\"|});"
 		],
 		"description": "Creates a URL on-the-fly by passing URL parameters from within your SuiteScript."
 	},
-
-	"nlapiSetRedirectURL": {
+	"(Application Navigation API) nlapiSetRedirectURL": {
 		"prefix": "nlapiSetRedirectURL",
 		"body": [
-			"nlapiSetRedirectURL(${1:type}, ${2:identifier}, ${3:id}, ${4:editMode}, ${5:parameters});"
+			"nlapiSetRedirectURL(${1|type,\"RECORD\",\"TASKLINK\",\"SUITELET\",\"RESTLET\"|}, ${2:\"identifier\"}, ${3:\"id\"}, ${4|editMode,true,false|}, ${5:parameters});"
 		],
 		"description": "Sets the redirect URL by resolving to a NetSuite resource."
 	},
 	//**********************************************
-    //****************** Date APIs *****************
-    //**********************************************
-
-	"nlapiAddDays": {
+	//****************** Date APIs *****************
+	//**********************************************
+	"(Date API) nlapiAddDays": {
 		"prefix": "nlapiAddDays",
 		"body": [
 			"nlapiAddDays(${1:d}, ${2:days});"
 		],
 		"description": "Adds/subtracts a number of days to or from a date object."
 	},
-
-	"nlapiAddMonths": {
+	"(Date API) nlapiAddMonths": {
 		"prefix": "nlapiAddMonths",
 		"body": [
 			"nlapiAddMonths(${1:d}, ${2:months});"
 		],
 		"description": "Adds/subtracts a number of months to or from a date object."
 	},
-
-	"nlapiDateToString": {
+	"(Date API) nlapiDateToString": {
 		"prefix": "nlapiDateToString",
 		"body": [
-			"nlapiDateToString(${1:d}, ${2:format});"
+			"nlapiDateToString(${1:d}, ${2:\"format\"});"
 		],
 		"description": "Converts a Date object to a string, formats the string based on the format argument passed in, and then returns the formatted string."
 	},
-
-	"nlapiStringToDate": {
+	"(Date API) nlapiStringToDate": {
 		"prefix": "nlapiStringToDate",
 		"body": [
-			"nlapiStringToDate(${str:d}, ${2:format});"
+			"nlapiStringToDate(${1:str}, ${2:\"format\"});"
 		],
 		"description": "Converts a string to a Date object, formats the date object based on the format argument passed in, and then returns the formatted date object."
 	},
-
 	//**********************************************
-    //***************** Field APIs ****************
-    //**********************************************
-
-	"nlapiGetCurrentLineItemDateTimeValue": {
+	//*********** DateTime Time Zone APIs **********
+	//**********************************************
+	"(DateTime Time Zone API) nlapiGetCurrentLineItemDateTimeValue": {
 		"prefix": "nlapiGetCurrentLineItemDateTimeValue",
 		"body": [
-			"nlapiGetCurrentLineItemDateTimeValue(${1:type}, ${2:fieldId}, ${3:timeZone});"
+			"var dateTime = nlapiGetCurrentLineItemDateTimeValue(${1:\"type\"}, ${2:\"fieldId\"}, ${3:\"timeZone\"});"
 		],
 		"description": "This API returns the value of a datetime field on the currently selected line of a sublist."
 	},
-
-	"nlapiGetDateTimeValue": {
+	"(DateTime Time Zone API) nlapiGetDateTimeValue": {
 		"prefix": "nlapiGetDateTimeValue",
 		"body": [
-			"nlapiGetDateTimeValue(${1:fieldId}, ${2:timeZone});"
+			"var dateTime = nlapiGetDateTimeValue(${1:\"fieldId\"}, ${2:\"timeZone\"});"
 		],
 		"description": "This API returns the value of a datetime field. If timeZone is passed in."
 	},
-
-	"nlapiGetLineItemDateTimeValue": {
+	"(DateTime Time Zone API) nlapiGetLineItemDateTimeValue": {
 		"prefix": "nlapiGetLineItemDateTimeValue",
 		"body": [
-			"nlapiGetLineItemDateTimeValue(${1:type}, ${2:fieldId}, ${3:lineNum}, ${4:timeZone});"
+			"var dateTime = nlapiGetLineItemDateTimeValue(${1:\"type\"}, ${2:\"fieldId\"}, ${3:lineNum}, ${4:\"timeZone\"});"
 		],
 		"description": "This API returns the value of a datetime field on a sublist."
 	},
-
-	"nlapiSetCurrentLineItemDateTimeValue": {
+	"(DateTime Time Zone API) nlapiSetCurrentLineItemDateTimeValue": {
 		"prefix": "nlapiSetCurrentLineItemDateTimeValue",
 		"body": [
-			"nlapiSetCurrentLineItemDateTimeValue(${1:type}, ${2:fieldId}, ${3:dateTime}, ${4:timeZone});"
+			"nlapiSetCurrentLineItemDateTimeValue(${1:\"type\"}, ${2:\"fieldId\"}, ${3:dateTime}, ${4:\"timeZone\"});"
 		],
 		"description": "This API sets the value of a datetime field on the currently selected line of a sublist."
 	},
-
-	"nlapiSetDateTimeValue": {
+	"(DateTime Time Zone API) nlapiSetDateTimeValue": {
 		"prefix": "nlapiSetDateTimeValue",
 		"body": [
-			"nlapiSetDateTimeValue(${1:fieldId}, ${2:dateTime}, ${3:timeZone});"
+			"nlapiSetDateTimeValue(${1:\"fieldId\"}, ${2:dateTime}, ${3:\"timeZone\"});"
 		],
 		"description": "This API sets the value of a datetime field."
 	},
-
-	"nlapiSetLineItemDateTimeValue": {
+	"(DateTime Time Zone API) nlapiSetLineItemDateTimeValue": {
 		"prefix": "nlapiSetLineItemDateTimeValue",
 		"body": [
-			"nlapiSetLineItemDateTimeValue(${1:type}, ${2:fieldId}, ${3:lineNum}, ${4:dateTime}, ${5:timeZone});"
+			"nlapiSetLineItemDateTimeValue(${1:\"type\"}, ${2:\"fieldId\"}, ${3:lineNum}, ${4:\"dateTime\"}, ${5:\"timeZone\"});"
 		],
 		"description": "This API sets the value of a datetime field on a sublist."
 	},
-
 	//**********************************************
-    //*************** Currency APIs ****************
-    //**********************************************
-
-	"nlapiExchangeRate": {
+	//*************** Currency APIs ****************
+	//**********************************************
+	"(Currency API) nlapiExchangeRate": {
 		"prefix": "nlapiExchangeRate",
 		"body": [
-			"nlapiExchangeRate(${1:sourceCurrency}, ${2:targetCurrency}, ${3:effectiveDate});"
+			"var rate = nlapiExchangeRate(${1:\"sourceCurrency\"}, ${2:\"targetCurrency\"}, ${3:\"effectiveDate\"});"
 		],
 		"description": "Use this API to get the exchange rate between two currencies based on a certain date."
 	},
-
-	"nlapiFormatCurrency": {
+	"(Currency API) nlapiFormatCurrency": {
 		"prefix": "nlapiFormatCurrency",
 		"body": [
-			"nlapiFormatCurrency(${1:str});"
+			"var currencyString = nlapiFormatCurrency(${1:\"str\"});"
 		],
 		"description": "Formats a String into a currency field value."
 	},
-
 	//**********************************************
-    //*************** Encryption APIs **************
-    //**********************************************
-
-	"nlapiEncrypt": {
+	//*************** Encryption APIs **************
+	//**********************************************
+	"(Encryption API) nlapiEncrypt": {
 		"prefix": "nlapiEncrypt",
 		"body": [
-			"nlapiEncrypt(${1:s}, ${2:algorithm}, ${3:key});"
+			"var encrypted = nlapiEncrypt(${1:\"string\"}, ${2|algorithm,\"sha1\",\"aes\",\"base64\",\"xor\"|}, ${3:\"key\"});"
 		],
 		"description": "Encodes, encrypts, or obfuscates a clear text string."
 	},
-
 	//**********************************************
-    //****************** XML APIs ******************
-    //**********************************************
-
-	"nlapiEscapeXML": {
+	//****************** XML APIs ******************
+	//**********************************************
+	"(XML API) nlapiEscapeXML": {
 		"prefix": "nlapiEscapeXML",
 		"body": [
-			"nlapiEscapeXML(${1:text});"
+			"var scapedString = nlapiEscapeXML(${1:\"text\"});"
 		],
 		"description": "Prepares a String for use in XML by escaping XML markup (for example, angle brackets, quotation .marks, and ampersands)."
 	},
-	
-	"nlapiSelectNode": {
+	"(XML API) nlapiSelectNode": {
 		"prefix": "nlapiSelectNode",
 		"body": [
-			"nlapiSelectNode(${1:node}, ${2:xpath});"
+			"var node = nlapiSelectNode(${1:\"node\"}, ${2:\"xpath\"});"
 		],
 		"description": "Selects a node from an XML document using an XPath expression."
 	},
-	
-	"nlapiSelectNodes": {
+	"(XML API) nlapiSelectNodes": {
 		"prefix": "nlapiSelectNodes",
 		"body": [
-			"nlapiSelectNodes(${1:node}, ${2:xpath});"
+			"var nodes = nlapiSelectNodes(${1:\"node\"}, ${2:\"xpath\"});"
 		],
 		"description": "Selects an array of nodes from an XML document using an XPath expression."
 	},
-	
-	"nlapiSelectValue": {
+	"(XML API) nlapiSelectValue": {
 		"prefix": "nlapiSelectValue",
 		"body": [
-			"nlapiSelectValue(${1:node}, ${2:xpath});"
+			"var value = nlapiSelectValue(${1:\"node\"}, ${2:\"xpath\"});"
 		],
 		"description": "Selects a value from an XML document using an XPath expression."
 	},
-	
-	"nlapiSelectValues": {
+	"(XML API) nlapiSelectValues": {
 		"prefix": "nlapiSelectValues",
 		"body": [
-			"nlapiSelectValues(${1:node}, ${2:xpath});"
+			"var values = nlapiSelectValues(${1:\"node\"}, ${2:\"xpath\"});"
 		],
 		"description": "Selects an array of values from an XML document using an XPath expression."
 	},
-	
-	"nlapiStringToXML": {
+	"(XML API) nlapiStringToXML": {
 		"prefix": "nlapiStringToXML",
 		"body": [
-			"nlapiStringToXML(${1:text});"
+			"var xmlDoc = nlapiStringToXML(${1:\"text\"});"
 		],
 		"description": "Parses a String into a W3C XML document."
 	},
-	
-	"nlapiValidateXML": {
+	"(XML API) nlapiValidateXML": {
 		"prefix": "nlapiValidateXML",
 		"body": [
 			"nlapiValidateXML(${1:xmlDocument}, ${2:${1:xmlDocument}}, ${3:schemaFolderId});"
 		],
 		"description": "Parses a String into a W3C XML document."
 	},
-	
-	"nlapiXMLToString": {
+	"(XML API) nlapiXMLToString": {
 		"prefix": "nlapiXMLToString",
 		"body": [
-			"nlapiXMLToString(${1:xml});"
+			"var xmlString = nlapiXMLToString(${1:xmlDoc});"
 		],
 		"description": "Converts (serializes) an XML document into a String."
 	},
-	
-	"nlapiXMLToPDF": {
+	"(XML API) nlapiXMLToPDF": {
 		"prefix": "nlapiXMLToPDF",
 		"body": [
-			"nlapiXMLToPDF(${1:xmlString});"
+			"var file = nlapiXMLToPDF(${1:\"xmlString\"});"
 		],
 		"description": "Use this API in conjunction with the Big Faceless Report Generator built by Big Faceless Organization (BFO)."
 	},
-
 	//**********************************************
-    //****************** File APIs *****************
-    //**********************************************
-
-	"nlapiCreateFile": {
+	//****************** File APIs *****************
+	//**********************************************
+	"(File API) nlapiCreateFile": {
 		"prefix": "nlapiCreateFile",
 		"body": [
-			"nlapiCreateFile(${1:name}, ${2:type}, ${3:content});"
+			"var file = nlapiCreateFile(${1:\"name\"}, ${2|type,\"AUTOCAD\",\"BMPIMAGE\",\"CSV\",\"EXCEL\",\"FLASH\",\"GIFIMAGE\",\"GZIP\",\"HTMLDOC\",\"ICON\",\"JAVASCRIPT\",\"JPGIMAGE\",\"JSON\",\"MESSAGERFC\",\"MP3\",\"MPEGMOVIE\",\"MSPROJECT\",\"PDF\",\"PJPGIMAGE\",\"PLAINTEXT\",\"PNGIMAGE\",\"POSTSCRIPT\",\"POWERPOINT\",\"QUICKTIME\",\"RTF\",\"SMS\",\"STYLESHEET\",\"TIFFIMAGE\",\"VISIO\",\"WORD\",\"XMLDOC\",\"ZIP\"|}, ${3:\"content\"});"
 		],
 		"description": "Instantiates and returns an nlobjFile object."
 	},
-
-	"nlapiDeleteFile": {
+	"(File API) nlapiDeleteFile": {
 		"prefix": "nlapiDeleteFile",
 		"body": [
-			"nlapiDeleteFile(${1:id});"
+			"var idDeletedFile = nlapiDeleteFile(${1:id});"
 		],
 		"description": "Deletes a file and returns the internal ID of the file that was deleted."
 	},
-
-	"nlapiLoadFile": {
+	"(File API) nlapiLoadFile": {
 		"prefix": "nlapiLoadFile",
 		"body": [
-			"nlapiLoadFile(${1:id});"
+			"var file = nlapiLoadFile(${1:id});"
 		],
 		"description": "Loads a file from the NetSuite file cabinet (using the file's internal ID or path)."
 	},
-
-	"nlapiSubmitFile": {
+	"(File API) nlapiSubmitFile": {
 		"prefix": "nlapiSubmitFile",
 		"body": [
-			"nlapiSubmitFile(${1:file});"
+			"var idFile = nlapiSubmitFile(${1:file});"
 		],
 		"description": "Submits a file and returns the internal ID to the file that was added to (or updated in) the NetSuite file cabinet."
 	},
-
 	//**********************************************
-    //************** Comunication APIs *************
-    //**********************************************
-
-	"nlapiSendCampaignEmail": {
-		"prefix": "nlapiSendCampaignEmail",
+	//************* Error Handling APIs ************
+	//**********************************************
+	"(Error Handling API) nlapiCreateError": {
+		"prefix": "nlapiCreateError",
 		"body": [
-			"nlapiSendCampaignEmail(${1:campaigneventid}, ${2:recipientid});"
+			"var error = nlapiCreateError(${1:\"code\"}, ${2:\"details\"}, ${3|suppressNotification,true,false|});"
 		],
 		"description": "Use this function to send a single on-demand campaign email to a specified recipient and return a campaign response ID to track the email."
 	},
-
-	"nlapiSendEmail": {
+	//**********************************************
+	//************** Comunication APIs *************
+	//**********************************************
+	"(Comunication API) nlapiSendCampaignEmail": {
+		"prefix": "nlapiSendCampaignEmail",
+		"body": [
+			"var idResponse = nlapiSendCampaignEmail(${1:campaigneventid}, ${2:recipientid});"
+		],
+		"description": "Use this function to send a single on-demand campaign email to a specified recipient and return a campaign response ID to track the email."
+	},
+	"(Comunication API) nlapiSendEmail": {
 		"prefix": "nlapiSendEmail",
 		"body": [
-			"nlapiSendEmail(${1:author}, ${2:recipient}, ${3:subject}, ${4:body}, ${5:cc}, ${6:bcc}, ${7:records}, ${8:attachments}, ${9:notifySenderOnBounce}, ${10:internalOnly}, ${11:replyTo});"
+			"nlapiSendEmail(${1:author}, ${2:recipient}, ${3:\"subject\"}, ${4:\"body\"}, ${5:\"cc\"}, ${6:\"bcc\"}, ${7:records}, ${8:attachments}, ${9|notifySenderOnBounce,true,false|}, ${10|internalOnly,true,false|}, ${11:\"replyTo\"});"
 		],
 		"description": "nlapiSendEmail sends and records outgoing email to an individual or to a group of individuals."
 	},
-
-	"nlapiSendFax": {
+	"(Comunication API) nlapiSendFax": {
 		"prefix": "nlapiSendFax",
 		"body": [
-			"nlapiSendFax(${1:author}, ${2:recipient}, ${3:subject}, ${4:body}, ${5:records}, ${6:attachments});"
+			"nlapiSendFax(${1:author}, ${2:recipient}, ${3:\"subject\"}, ${4:\"body\"}, ${5:records}, ${6:attachments});"
 		],
 		"description": "Sends and records an outgoing fax using the fax settings already defined in the user's account."
 	},
-
-	"nlapiOutboundSSO": {
+	"(Comunication API) nlapiOutboundSSO": {
 		"prefix": "nlapiOutboundSSO",
 		"body": [
-			"nlapiOutboundSSO(${1:id});"
+			"var urlOAuth = nlapiOutboundSSO(${1:id});"
 		],
 		"description": "Use this API to generate a new OAuth token for a user.."
 	},
-
 	//**********************************************
-    //************* Configuration APIs *************
-    //**********************************************
-
-	"nlapiLoadConfiguration": {
+	//************* Configuration APIs *************
+	//**********************************************
+	"(Configuration API) nlapiLoadConfiguration": {
 		"prefix": "nlapiLoadConfiguration",
 		"body": [
-			"nlapiLoadConfiguration(${1:type});"
+			"var configuration = nlapiLoadConfiguration(${1|type, \"companyinformation\", \"companypreferences\", \"userpreferences\", \"accountingpreferences\", \"accountingperiods\", \"taxperiods\", \"companyfeatures\"|});"
 		],
 		"description": "Use this API to load a NetSuite configuration page."
 	},
-
-	"nlapiSubmitConfiguration": {
+	"(Configuration API) nlapiSubmitConfiguration": {
 		"prefix": "nlapiSubmitConfiguration",
 		"body": [
-			"nlapiSubmitConfiguration(${1:name});"
+			"nlapiSubmitConfiguration(${1:configuration});"
 		],
 		"description": "Use this API to submit changes to a configuration page that was loaded into the system using nlapiLoadConfiguration(type)."
 	},
-
 	//**********************************************
-    //*************** SuiteFlow APIs ***************
-    //**********************************************
-
-	
-	"nlapiInitiateWorkflow": {
+	//*************** SuiteFlow APIs ***************
+	//**********************************************
+	"(SuiteFlow API) nlapiInitiateWorkflow": {
 		"prefix": "nlapiInitiateWorkflow",
 		"body": [
-			"nlapiInitiateWorkflow(${1:recordtype}, ${2:id}, ${3:workflowid}, ${4:initialvalues});"
+			"var idWorkFlow = nlapiInitiateWorkflow(${1:\"recordtype\"}, ${2:id}, ${3:workflowid}, ${4:{initialvalues\\}});"
 		],
 		"description": "Use this function to initiate a workflow on-demand."
 	},
-
-	"nlapiInitiateWorkflowAsync": {
+	"(SuiteFlow API) nlapiInitiateWorkflowAsync": {
 		"prefix": "nlapiInitiateWorkflowAsync",
 		"body": [
-			"nlapiInitiateWorkflowAsync(${1:recordtype}, ${2:id}, ${3:workflowid}, ${4:initialvalues});"
+			"var state = nlapiInitiateWorkflowAsync(${1:\"recordtype\"}, ${2:id}, ${3:workflowid}, ${4:{initialvalues\\}});"
 		],
 		"description": "Use this function to asynchronously initiate a workflow."
 	},
-
-	"nlapiTriggerWorkflow": {
+	"(SuiteFlow API) nlapiTriggerWorkflow": {
 		"prefix": "nlapiTriggerWorkflow",
 		"body": [
-			"nlapiTriggerWorkflow(${1:recordtype}, ${2:id}, ${3:workflowid}, ${4:actionid}, ${5:stateid});"
+			"var idWorkFlow = nlapiTriggerWorkflow(${1:\"recordtype\"}, ${2:id}, ${3:workflowid}, ${4:actionid}, ${5:stateid});"
 		],
 		"description": "Use this API to trigger a workflow on a record."
 	},
-
 	//**********************************************
-    //**************** Portlet APIs ****************
-    //**********************************************
-
-	"nlapiRefreshPortlet": {
+	//**************** Portlet APIs ****************
+	//**********************************************
+	"(Portlet API) nlapiRefreshPortlet": {
 		"prefix": "nlapiRefreshPortlet",
 		"body": [
 			"nlapiRefreshPortlet();"
 		],
 		"description": "Causes a FORM type nlobjPortlet to immediately reload."
 	},
-
-	"nlapiResizePortlet": {
+	"(Portlet API) nlapiResizePortlet": {
 		"prefix": "nlapiResizePortlet",
 		"body": [
 			"nlapiResizePortlet();"
 		],
 		"description": "Causes a custom form portlet (nlobjPortlet) to be resized."
 	},
-
 	//**********************************************
-    //************* SuiteAnalytics APIs ************
-    //**********************************************
-
-	"nlapiCreateReportDefinition": {
+	//************* SuiteAnalytics APIs ************
+	//**********************************************
+	"(SuiteAnalytics API) nlapiCreateReportDefinition": {
 		"prefix": "nlapiCreateReportDefinition",
 		"body": [
-			"nlapiCreateReportDefinition();"
+			"var reportDefinition = nlapiCreateReportDefinition();"
 		],
 		"description": "Creates an instance of a report definition object."
 	},
-
-	"nlapiCreateReportForm": {
+	"(SuiteAnalytics API) nlapiCreateReportForm": {
 		"prefix": "nlapiCreateReportForm",
 		"body": [
-			"nlapiCreateReportForm();"
+			"var reportForm = nlapiCreateReportForm(${1:\"title\"});"
 		],
 		"description": "Creates an nlobjReportForm object to render the report definition."
 	},
-
 	//**********************************************
-    //************ User Credentials APIs ***********
-    //**********************************************
-
-	"nlapiGetLogin": {
+	//************ User Credentials APIs ***********
+	//**********************************************
+	"(User Credentials API) nlapiGetLogin": {
 		"prefix": "nlapiGetLogin",
 		"body": [
-			"nlapiGetLogin();"
+			"var login = nlapiGetLogin();"
 		],
 		"description": "Returns the NetSuite login credentials of currently logged-in user."
 	},
-
 	//**********************************************
-    //***************** Field APIs ****************
-    //**********************************************
-
-	"nlapiGetJobManager": {
+	//************** Job Manager APIs **************
+	//**********************************************
+	"(Job Manager API) nlapiGetJobManager": {
 		"prefix": "nlapiGetJobManager",
 		"body": [
-			"nlapiGetJobManager(${1:jobType});"
+			"var jobManager = nlapiGetJobManager(${1:\"jobType\"});"
 		],
 		"description": "Returns a job manager instance (nlobjJobManager)."
 	},
-
 	//**********************************************
-    //*********** nlobjConfiguration APIs **********
-    //**********************************************
-
-	"configuration": {
+	//*************** Standard Objects *************
+	//**********************************************
+	"(Standard Obj) configuration Methods": {
+		"prefix": "configuration.",
+		"body": [
+			"configuration.${1|getAllFields(),getField(fldnam),getFieldText(name),getFieldTexts(name),getFieldValue(name),getFieldValues(name),getType(),setFieldText(name\\, text),setFieldTexts(name\\, text),setFieldValue(name\\, value),setFieldValues(name\\, value)|};"
+		],
+		"description": "Primary object used to encapsulate a NetSuite configuration/setup page"
+	},
+	"(Standard Obj) context Methods": {
+		"prefix": "context.",
+		"body": [
+			"context.${1|getBundleId(),getColorPreferences() //(Deprecated as of Version 2014 Release 2),getCompany(),getDepartment(),getDeploymentId(),getEmail(),getEnvironment(),getExecutionContext(),getFeature(name),getLocation(),getLogLevel(),getName(),getPercentComplete(),getPermission(name),getPreference(name),getProcessorCount(),getQueueCount(),getRemainingUsage(),getRole(),getRoleCenter(),getRoleId(),getScriptId(),getSessionObject(name),getSetting(type\\, name),getSubsidiary(),getUser(),getVersion(),setPercentComplete(pct),setSessionObject(name\\, value),setSetting(type\\, name\\, value)|};"
+		],
+		"description": "Encapsulates user information as well as script execution context at runtime."
+	},
+	"(Standard Obj) credentialBuilder Methods": {
+		"prefix": "credentialBuilder.",
+		"body": [
+			"credentialBuilder.${1|append(nlobjCredentialBuilder),base64(),md5(),replace(string1\\, string2),sha1(),sha256(),utf8()|};"
+		],
+		"description": "The nlobjCredentialBuilder object encapsulates a request string that can be passed to nlapiRequestURLWithCredentials(credentials, url, postdata, headers, httpsMethod)."
+	},
+	"(Standard Obj) csvImport Methods": {
+		"prefix": "csvImport.",
+		"body": [
+			"csvImport.${1|setLinkedFile(sublist\\, file),setMapping(savedImport),setOption(option\\, value),setPrimaryFile(file),setQueue(string)|};"
+		],
+		"description": "Primary object used to encapsulate a CSV import job."
+	},
+	"(Standard Obj) duplicateJobRequest Methods": {
+		"prefix": "duplicateJobRequest.",
+		"body": [
+			"duplicateJobRequest.${1|setEntityType(entityType),setMasterId(masterID),setMasterSelectionMode(mode),setOperation(operation),setRecords(dupeRecords)|};"
+		],
+		"description": "Primary object used to encapsulate all the properties of a merge duplicate record job request."
+	},
+	"(Standard Obj) emailMerger Methods": {
+		"prefix": "emailMerger.",
+		"body": [
+			"emailMerger.${1|merge(),setCustomRecord(recordType\\, recordId),setEntity(entityType\\, entityId),setRecipient(recipientType\\, recipientId),setSupportCase(caseId),setTransaction(transactionId)|};"
+		],
+		"description": "Encapsulates a scriptable email template."
+	},
+	"(Standard Obj) error Methods": {
+		"prefix": "error.",
+		"body": [
+			"error.${1|getCode(),getDetails(),getId(),getInternalId(),getStackTrace(),getUserEvent()|};"
+		],
+		"description": "Primary object used to encapsulate errors in the system."
+	},
+	"(Standard Obj) file Methods": {
+		"prefix": "file.",
+		"body": [
+			"file.${1|getDescription(),getFolder(),getId(),getName(),getSize(),getType(),getURL(),getValue(),isInactive(),isOnline(),setDescription(description),setEncoding(encodingType),setFolder(id),setIsInactive(inactive),setIsOnline(online),setName(name)|};"
+		],
+		"description": "Primary object used to encapsulate files (media items) in the NetSuite file cabinet."
+	},
+	"(Standard Obj) future Methods": {
+		"prefix": "future.",
+		"body": [
+			"future.${1|isDone(),isCancelled()|};"
+		],
+		"description": "Encapsulates the properties of a merge duplicate record job status."
+	},
+	"(Standard Obj) jobManager Methods": {
+		"prefix": "jobManager.",
+		"body": [
+			"jobManager.${1|createJobRequest(),submit(nlobjDuplicateJobRequest),getFuture()|};"
+		],
+		"description": "Encapsulates the properties of a job manager."
+	},
+	"(Standard Obj) login Methods": {
+		"prefix": "login.",
+		"body": [
+			"login.${1|changeEmail(currentPassword\\, newEmail\\, justThisAccount),changePassword(currentPassword\\, newPassword)|};"
+		],
+		"description": ""
+	},
+	"(Standard Obj) mergeResult Methods": {
+		"prefix": "mergeResult.",
+		"body": [
+			"mergeResult.${1|getBody(),getSubject()|};"
+		],
+		"description": "The nlobjMergeResult object is supported in all server-side scripts"
+	},
+	"(Standard Obj) pivotColumn Methods": {
+		"prefix": "pivotColumn.",
+		"body": [
+			"pivotColumn.${1|getAlias(),getParent(),getLabel(),getSummaryLine(),getValue(),getVisibleChildren(),isHidden()|};"
+		],
+		"description": "Object used to encapsulate a pivot table column."
+	},
+	"(Standard Obj) pivotRow Methods": {
+		"prefix": "pivotRow.",
+		"body": [
+			"pivotRow.${1|getAlias(),getChildren(),getLabel(),getOpeningLine(),getParent(),getSummaryLine(),getValue(),getValue(pivotColumn),isDetailLine()|};"
+		],
+		"description": "Object used to encapsulate a pivot table row."
+	},
+	"(Standard Obj) pivotTable Methods": {
+		"prefix": "pivotTable.",
+		"body": [
+			"pivotTable.${1|getColumnHierarchy(),getRowHierarchy()|};"
+		],
+		"description": "Object used to encapsulate the pivot table."
+	},
+	"(Standard Obj) pivotTableHandle Methods": {
+		"prefix": "pivotTableHandle.",
+		"body": [
+			"pivotTableHandle.${1|getPivotTable(),isReady()|};"
+		],
+		"description": "Handle to the pivot table object. A handle is a reference which points to the pivot table."
+	},
+	"(Standard Obj) record Methods": {
+		"prefix": "record.",
+		"body": [
+			"record.${1|commitLineItem(group\\, ignoreRecalc),createCurrentLineItemSubrecord(sublist\\, fldname),createSubrecord(fldname),editCurrentLineItemSubrecord(sublist\\, fldname),editSubrecord(fldname),findLineItemMatrixValue(group\\, fldnam\\, column\\, val),findLineItemValue(group\\, fldnam\\, value),getAllFields(),getAllLineItemFields(group),getCurrentLineItemDateTimeValue(type\\, fieldId\\, timeZone),getCurrentLineItemMatrixValue(group\\, fldnam\\, column),getCurrentLineItemValue(type\\, fldnam),getCurrentLineItemValues(type\\, fldnam),getDateTimeValue(fieldId\\, timeZone),getField(fldnam),getFieldText(name),getFieldTexts(name),getFieldValue(name),getFieldValues(name),getId(),getLineItemCount(group),getLineItemDateTimeValue(type\\, fieldId\\, lineNum\\, timeZone),getLineItemField(group\\, fldnam\\, linenum),getLineItemMatrixField(group\\, fldnam\\, linenum\\, column),getLineItemMatrixValue(group\\, fldnam\\, lineum\\, column),getLineItemText(group\\, fldnam\\, linenum),getLineItemValue(group\\, name\\, linenum),getLineItemValues(type\\, fldnam\\, linenum),getMatrixCount(group\\, fldnam),getMatrixField(group\\, fldname\\, column),getMatrixValue(group\\, fldnam\\, column),getRecordType(),insertLineItem(group\\, linenum\\, ignoreRecalc),removeLineItem(group\\, linenum\\, ignoreRecalc),removeCurrentLineItemSubrecord(sublist\\, fldname),removeSubrecord(fldname),selectLineItem(group\\, linenum),selectNewLineItem(group),setCurrentLineItemDateTimeValue(type\\, fieldId\\, dateTime\\, timeZone),setCurrentLineItemMatrixValue(group\\, fldnam\\, column\\, value),setCurrentLineItemValue(group\\, name\\, value),setDateTimeValue(fieldId\\, dateTime\\, timeZone),setFieldText(name\\, text),setFieldTexts(name\\, text),setFieldValue(name\\, value),setFieldValues(name\\, value),setLineItemDateTimeValue(type\\, fieldId\\, lineNum\\, dateTime\\, timeZone),setLineItemValue(group\\, name\\, linenum\\, value),setMatrixValue(group\\, fldnam\\, column\\, value),viewCurrentLineItemSubrecord(sublist\\, fldname),viewLineItemSubrecord(sublist\\, fldname\\, linenum),viewSubrecord(fldname)|};"
+		],
+		"description": "Primary object used to encapsulate a NetSuite record."
+	},
+	"(Standard Obj) reportColumn Methods": {
+		"prefix": "reportColumn.",
+		"body": [
+			"reportColumn.${1|getFormula(),getParent(),isMeasure()|};"
+		],
+		"description": "Object used to encapsulate a report column on a pivot report."
+	},
+	"(Standard Obj) reportColumnHierarchy Methods": {
+		"prefix": "reportColumnHierarchy.",
+		"body": [
+			"reportColumnHierarchy.${1|getChildren(),getParent()|};"
+		],
+		"description": "Object used to encapsulate the report column hierarchy."
+	},
+	"(Standard Obj) reportDefinition Methods": {
+		"prefix": "reportDefinition.",
+		"body": [
+			"reportDefinition.${1|addColumn(alias\\, isMeasure\\, label\\, parent\\, format\\, formula),addColumnHierarchy(alias\\, label\\, parent\\, format),addRowHierarchy(alias\\, label\\, format),addSearchDatasource(searchType\\, id\\, filters\\, columns\\, map),executeReport(form),setTitle(title)|};"
+		],
+		"description": "The primary object that contains the definition of the report."
+	},
+	"(Standard Obj) reportForm Methods": {
+		"prefix": "reportForm.",
+		"body": [
+			"reportForm"
+		],
+		"description": "Object used to encapsulate the report form and render the report in HTML."
+	},
+	"(Standard Obj) reportRowHierarchy Methods": {
+		"prefix": "reportRowHierarchy.",
+		"body": [
+			"reportRowHierarchy.${1|getChildren(),getParent()|};"
+		],
+		"description": "Object used to encapsulate the report row hierarchy"
+	},
+	"(Standard Obj) request Methods": {
+		"prefix": "request.",
+		"body": [
+			"request.${1|getAllHeaders(),getAllParameters(),getBody(),getFile(id),getHeader(name),getLineItemCount(group),getLineItemValue(group\\, name\\, line),getMethod(),getParameter(name),getParameterValues(name),getSSPURL(),getURL()|};"
+		],
+		"description": "Primary object used to encapsulate an HTTP GET or POST request."
+	},
+	"(Standard Obj) response Methods": {
+		"prefix": "response.",
+		"body": [
+			"response.${1|addHeader(name\\, value),getAllHeaders(),getBody(),getCode(),getError(),getHeader(name),getHeaders(name),renderPDF(xmlString),setCDNCacheable(type),setContentType(type\\, name\\, disposition),setEncoding(encodingType),setHeader(name\\, value),sendRedirect(type\\, identifier\\, id\\, editmode\\, parameters),write(output),writeLine(output),writePage(pageobject)|};"
+		],
+		"description": "Primary object used for scripting web responses in Suitelets."
+	},
+	"(Standard Obj) search Methods": {
+		"prefix": "search.",
+		"body": [
+			"search.${1|addColumn(column),addColumns(columns),addFilter(filter),addFilters(filters),deleteSearch(),getColumns(),getFilterExpression(),getFilters(),getId(),getIsPublic(),getScriptId(),getSearchType(),runSearch(),saveSearch(title\\, scriptId),setColumns(columns),setFilterExpression(filterExpression),setFilters(filters),setIsPublic(type),setRedirectURLToSearch(),setRedirectURLToSearchResults()|};"
+		],
+		"description": "Primary object used to encapsulate a NetSuite saved search."
+	},
+	"(Standard Obj) searchColumn Methods": {
+		"prefix": "searchColumn.",
+		"body": [
+			"searchColumn.${1|getFormula(),getFunction(),getJoin(),getLabel(),getName(),getSort(),getSummary(),setFormula(formula),setFunction(functionid),setLabel(label),setSort(order),setWhenOrderedBy(name\\, join)|};"
+		],
+		"description": "Primary object used to encapsulate search return columns"
+	},
+	"(Standard Obj) searchFilter Methods": {
+		"prefix": "searchFilter.",
+		"body": [
+			"searchFilter.${1|constructor(name\\, join\\, operator\\, value1\\, value2),getFormula(),getJoin(),getName(),getSummaryType(),getOperator(),setFormula(formula),setSummaryType(type)|};"
+		],
+		"description": "Primary object used to encapsulate search filters."
+	},
+	"(Standard Obj) searchResult Methods": {
+		"prefix": "searchResult.",
+		"body": [
+			"searchResult.${1|getAllColumns(),getId(),getRecordType(),getText(column),getText(name\\, join\\, summary),getValue(name\\, join\\, summary),getValue(column)|};"
+		],
+		"description": "Primary object used to encapsulate a search result row."
+	},
+	"(Standard Obj) searchResultSet Methods": {
+		"prefix": "searchResultSet.",
+		"body": [
+			"searchResultSet.${1|forEachResult(callback),getColumns(),getResults(start\\, end)|};"
+		],
+		"description": "Primary object used to encapsulate a set of search results."
+	},
+	"(Standard Obj) selectOption Methods": {
+		"prefix": "selectOption.",
+		"body": [
+			"selectOption.${1|getId(),getText()|};"
+		],
+		"description": "Primary object used to encapsulate available select options for a select field."
+	},
+	"(Standard Obj) subrecord Methods": {
+		"prefix": "subrecord.",
+		"body": [
+			"subrecord.${1|cancel(),commit()|};"
+		],
+		"description": ""
+	},
+	"(Standard Obj) configuration Obj": {
 		"prefix": "configuration",
 		"body": [
-			"configuration${1|.getAllFields(),.getField(fldnam),.getFieldText(name),.getFieldTexts(name),.getFieldValue(name),.getFieldValues(name),.getType(),.setFieldText(name\\, text),.setFieldTexts(name\\, text),.setFieldValue(name\\, value),.setFieldValues(name\\, value)|};"
+			"configuration"
 		],
-		"description": "Initializes"
+		"description": "Primary object used to encapsulate a NetSuite configuration/setup page"
+	},
+	"(Standard Obj) context Obj": {
+		"prefix": "context",
+		"body": [
+			"context"
+		],
+		"description": "Encapsulates user information as well as script execution context at runtime."
+	},
+	"(Standard Obj) credentialBuilder Obj": {
+		"prefix": "credentialBuilder",
+		"body": [
+			"credentialBuilder"
+		],
+		"description": "The nlobjCredentialBuilder object encapsulates a request string that can be passed to nlapiRequestURLWithCredentials(credentials, url, postdata, headers, httpsMethod)."
+	},
+	"(Standard Obj) csvImport Obj": {
+		"prefix": "csvImport",
+		"body": [
+			"csvImport"
+		],
+		"description": "Primary object used to encapsulate a CSV import job."
+	},
+	"(Standard Obj) duplicateJobRequest Obj": {
+		"prefix": "duplicateJobRequest",
+		"body": [
+			"duplicateJobRequest"
+		],
+		"description": "Primary object used to encapsulate all the properties of a merge duplicate record job request."
+	},
+	"(Standard Obj) emailMerger Obj": {
+		"prefix": "emailMerger",
+		"body": [
+			"emailMerger"
+		],
+		"description": "Encapsulates a scriptable email template."
+	},
+	"(Standard Obj) error Obj": {
+		"prefix": "error",
+		"body": [
+			"error"
+		],
+		"description": "Primary object used to encapsulate errors in the system."
+	},
+	"(Standard Obj) file Obj": {
+		"prefix": "file",
+		"body": [
+			"file"
+		],
+		"description": "Primary object used to encapsulate files (media items) in the NetSuite file cabinet."
+	},
+	"(Standard Obj) future Obj": {
+		"prefix": "future",
+		"body": [
+			"future"
+		],
+		"description": "Encapsulates the properties of a merge duplicate record job status."
+	},
+	"(Standard Obj) jobManager Obj": {
+		"prefix": "jobManager",
+		"body": [
+			"jobManager"
+		],
+		"description": "Encapsulates the properties of a job manager."
+	},
+	"(Standard Obj) login Obj": {
+		"prefix": "login",
+		"body": [
+			"login"
+		],
+		"description": ""
+	},
+	"(Standard Obj) mergeResult Obj": {
+		"prefix": "mergeResult",
+		"body": [
+			"mergeResult"
+		],
+		"description": "The nlobjMergeResult object is supported in all server-side scripts"
+	},
+	"(Standard Obj) pivotColumn Obj": {
+		"prefix": "pivotColumn",
+		"body": [
+			"pivotColumn"
+		],
+		"description": "Object used to encapsulate a pivot table column."
+	},
+	"(Standard Obj) pivotRow Obj": {
+		"prefix": "pivotRow",
+		"body": [
+			"pivotRow"
+		],
+		"description": "Object used to encapsulate a pivot table row."
+	},
+	"(Standard Obj) pivotTable Obj": {
+		"prefix": "pivotTable",
+		"body": [
+			"pivotTable"
+		],
+		"description": "Object used to encapsulate the pivot table."
+	},
+	"(Standard Obj) pivotTableHandle Obj": {
+		"prefix": "pivotTableHandle",
+		"body": [
+			"pivotTableHandle"
+		],
+		"description": "Handle to the pivot table object. A handle is a reference which points to the pivot table."
+	},
+	"(Standard Obj) record Obj": {
+		"prefix": "record",
+		"body": [
+			"record"
+		],
+		"description": "Primary object used to encapsulate a NetSuite record."
+	},
+	"(Standard Obj) reportColumn Obj": {
+		"prefix": "reportColumn",
+		"body": [
+			"reportColumn"
+		],
+		"description": "Object used to encapsulate a report column on a pivot report."
+	},
+	"(Standard Obj) reportColumnHierarchy Obj": {
+		"prefix": "reportColumnHierarchy",
+		"body": [
+			"reportColumnHierarchy"
+		],
+		"description": "Object used to encapsulate the report column hierarchy."
+	},
+	"(Standard Obj) reportDefinition Obj": {
+		"prefix": "reportDefinition",
+		"body": [
+			"reportDefinition"
+		],
+		"description": "The primary object that contains the definition of the report."
+	},
+	"(Standard Obj) reportForm Obj": {
+		"prefix": "reportForm",
+		"body": [
+			"reportForm"
+		],
+		"description": "Object used to encapsulate the report form and render the report in HTML."
+	},
+	"(Standard Obj) reportRowHierarchy Obj": {
+		"prefix": "reportRowHierarchy",
+		"body": [
+			"reportRowHierarchy"
+		],
+		"description": "Object used to encapsulate the report row hierarchy"
+	},
+	"(Standard Obj) request Obj": {
+		"prefix": "request",
+		"body": [
+			"request"
+		],
+		"description": "Primary object used to encapsulate an HTTP GET or POST request."
+	},
+	"(Standard Obj) response Obj": {
+		"prefix": "response",
+		"body": [
+			"response"
+		],
+		"description": "Primary object used for scripting web responses in Suitelets."
+	},
+	"(Standard Obj) search Obj": {
+		"prefix": "search",
+		"body": [
+			"search"
+		],
+		"description": "Primary object used to encapsulate a NetSuite saved search."
+	},
+	"(Standard Obj) searchColumn Obj": {
+		"prefix": "searchColumn",
+		"body": [
+			"searchColumn"
+		],
+		"description": "Primary object used to encapsulate search return columns"
+	},
+	"(Standard Obj) searchFilter Obj": {
+		"prefix": "searchFilter",
+		"body": [
+			"searchFilter"
+		],
+		"description": "Primary object used to encapsulate search filters."
+	},
+	"(Standard Obj) searchResult Obj": {
+		"prefix": "searchResult",
+		"body": [
+			"searchResult"
+		],
+		"description": "Primary object used to encapsulate a search result row."
+	},
+	"(Standard Obj) searchResultSet Obj": {
+		"prefix": "searchResultSet",
+		"body": [
+			"searchResultSet"
+		],
+		"description": "Primary object used to encapsulate a set of search results."
+	},
+	"(Standard Obj) selectOption Obj": {
+		"prefix": "selectOption",
+		"body": [
+			"selectOption"
+		],
+		"description": "Primary object used to encapsulate available select options for a select field."
+	},
+	"(Standard Obj) subrecord Obj": {
+		"prefix": "subrecord",
+		"body": [
+			"subrecord"
+		],
+		"description": ""
+	},
+	//**********************************************
+	//***************** UI Objects ****************
+	//**********************************************
+	"(Standard Obj) assistant Methods": {
+		"prefix": "assistant.",
+		"body": [
+			"assistant.${1|addField(name\\, type\\, label\\, source\\, group),addFieldGroup(name\\, label),addStep(name\\, label),addSubList(name\\, type\\, label),getAllFields(),getAllFieldGroups(),getAllSteps(),getAllSubLists(),getCurrentStep(),getField(name),getFieldGroup(name),getLastAction(),getLastStep(),getNextStep(),getStep(name),getStepCount(),getSubList(name),hasError(),isFinished(),sendRedirect(response),setCurrentStep(step),setError(html),setFieldValues(values),setFinished(html),setNumbered(hasStepNumber),setOrdered(ordered),setScript(script),setShortcut(show),setSplash(title\\, text1\\,text2),setTitle(title)|};"
+		],
+		"description": "Primary object used to encapsulate all properties of a scriptable multi-step NetSuite assistant."
+	},
+	"(Standard Obj) assistantStep Methods": {
+		"prefix": "assistantStep.",
+		"body": [
+			"assistantStep.${1|getAllFields(),getAllLineItemFields(group),getAllLineItems(),getFieldValue(name),getFieldValues(name),getLineItemCount(group),getLineItemValue(group\\, name\\, line),getStepNumber(),setHelpText(help),setLabel(label)|};"
+		],
+		"description": "Primary object used to encapulate a step within a custom NetSuite assistant."
+	},
+	"(Standard Obj) button Methods": {
+		"prefix": "button.",
+		"body": [
+			"button.${1|setDisabled(disabled),setLabel(label),setVisible(visible)|};"
+		],
+		"description": "Primary object used to encapsulate custom buttons."
+	},
+	"(Standard Obj) column Methods": {
+		"prefix": "column.",
+		"body": [
+			"column.${1|addParamToURL(param\\, value\\, dynamic),setLabel(label),setURL(url\\, dynamic)|};"
+		],
+		"description": "Primary object used to encapsulate list columns. To add a column."
+	},
+	"(Standard Obj) field Methods": {
+		"prefix": "field.",
+		"body": [
+			"field.${1|addSelectOption(value\\, text\\, selected),getLabel(),getName(),getSelectOptions(filter\\, filteroperator),getType(),setAlias(alias),setBreakType(breaktype),setDefaultValue(value),setDisplaySize(width\\, height),setDisplayType(type),setHelpText(help\\, inline),setLabel(label),setLayoutType(type\\, breaktype),setLinkText(text),setMandatory(mandatory),setMaxLength(maxlength),setPadding(padding),setRichTextHeight(height),setRichTextWidth(width)|};"
+		],
+		"description": "Primary object used to encapsulate a NetSuite field."
+	},
+	"(Standard Obj) fieldGroup Methods": {
+		"prefix": "fieldGroup.",
+		"body": [
+			"fieldGroup.${1|setCollapsible(collapsible\\, hidden),setLabel(label),setShowBorder(show),setSingleColumn(column)|};"
+		],
+		"description": "Primary object used to encapsulate a field group on a custom NetSuite assistant page and on nlobjForm objects."
+	},
+	"(Standard Obj) form Methods": {
+		"prefix": "form.",
+		"body": [
+			"form.${1|addButton(name\\, label\\, script),addCredentialField(id\\, label\\, website\\, scriptId\\, value\\, entityMatch\\, tab),addField(name\\, type\\, label\\, sourceOrRadio\\, tab),addFieldGroup(name\\, label\\, tab),addPageLink(type\\, title\\, url),addResetButton(label),addSubList(name\\, type\\, label\\, tab),addSubmitButton(label),addSubTab(name\\, label\\, tab),addTab(name\\, label),getButton(name),getField(name\\, radio),getSubList(name),getSubTab(name),getTab(name),getTabs(),insertField(field\\, nextfld),insertSubList(sublist\\, nextsub),insertSubTab(subtab\\, nextsub),insertTab(tab\\, nexttab),removeButton(name),setFieldValues(values),setScript(script),setTitle(title)|};"
+		],
+		"description": "Primary object used to encapsulate a NetSuite-looking form."
+	},
+	"(Standard Obj) list Methods": {
+		"prefix": "list.",
+		"body": [
+			"list.${1|addButton(name\\, label\\, script),addColumn(name\\, type\\, label\\, align),addEditColumn(column\\, showView\\, showHrefCol),addPageLink(type\\, title\\, url),addRow(row),addRows(rows),setScript(script),setStyle(style),setTitle(title)|};"
+		],
+		"description": "Primary object used to encapsulate a list page."
+	},
+	"(Standard Obj) portlet Methods": {
+		"prefix": "portlet.",
+		"body": [
+			"portlet.${1|addColumn(name\\, type\\, label\\, just),addEditColumn(column\\, showView\\, showHrefCol),addField(name\\, type\\, label\\, source),addLine(text\\, url\\, indent),addRow(row),addRows(rows),setHtml(html),setRefreshInterval(n),setScript(scriptid),setSubmitButton(url\\, label\\, target),setTitle(title)|};"
+		],
+		"description": "Primary object used to encapsulate scriptable dashboard portlets."
+	},
+	"(Standard Obj) subList Methods": {
+		"prefix": "subList.",
+		"body": [
+			"subList.${1|addButton(name\\, label\\, script),addField(name\\, type\\, label\\, source),addMarkAllButtons(),addRefreshButton(),getLineItemCount(),getLineItemValue(group\\, fldnam\\, linenum),setAmountField(field),setDisplayType(type),setHelpText(help),setLabel(label),setLineItemValue(name\\, linenum\\,value),setLineItemValues(values),setUniqueField(name)|};"
+		],
+		"description": "Primary object used to encapsulate a NetSuite sublist."
+	},
+	"(Standard Obj) tab Methods": {
+		"prefix": "tab.",
+		"body": [
+			"tab.${1|setLabel(label),setHelpText(help)|};"
+		],
+		"description": "Primary object used to encapsulate tabs and subtabs."
+	},
+	"(Standard Obj) templateRenderer Methods": {
+		"prefix": "templateRenderer.",
+		"body": [
+			"templateRenderer.${1|setTemplate(template),addRecord(var\\, record),addSearchResults(var\\, searchResult),renderToString(),renderToResponse()|};"
+		],
+		"description": "Template engine that produces HTML and PDF printed forms utilizing advanced PDF/HTML template capabilities."
+	},
+	"(Standard Obj) assistant Obj": {
+		"prefix": "assistant",
+		"body": [
+			"assistant"
+		],
+		"description": "Primary object used to encapsulate all properties of a scriptable multi-step NetSuite assistant."
+	},
+	"(Standard Obj) assistantStep Obj": {
+		"prefix": "assistantStep",
+		"body": [
+			"assistantStep"
+		],
+		"description": "Primary object used to encapulate a step within a custom NetSuite assistant."
+	},
+	"(Standard Obj) button Obj": {
+		"prefix": "button",
+		"body": [
+			"button"
+		],
+		"description": "Primary object used to encapsulate custom buttons."
+	},
+	"(Standard Obj) column Obj": {
+		"prefix": "column",
+		"body": [
+			"column"
+		],
+		"description": "Primary object used to encapsulate list columns. To add a column."
+	},
+	"(Standard Obj) field Obj": {
+		"prefix": "field",
+		"body": [
+			"field"
+		],
+		"description": "Primary object used to encapsulate a NetSuite field."
+	},
+	"(Standard Obj) fieldGroup Obj": {
+		"prefix": "fieldGroup",
+		"body": [
+			"fieldGroup"
+		],
+		"description": "Primary object used to encapsulate a field group on a custom NetSuite assistant page and on nlobjForm objects."
+	},
+	"(Standard Obj) form Obj": {
+		"prefix": "form",
+		"body": [
+			"form"
+		],
+		"description": "Primary object used to encapsulate a NetSuite-looking form."
+	},
+	"(Standard Obj) list Obj": {
+		"prefix": "list",
+		"body": [
+			"list"
+		],
+		"description": "Primary object used to encapsulate a list page."
+	},
+	"(Standard Obj) portlet Obj": {
+		"prefix": "portlet",
+		"body": [
+			"portlet"
+		],
+		"description": "Primary object used to encapsulate scriptable dashboard portlets."
+	},
+	"(Standard Obj) subList Obj": {
+		"prefix": "subList",
+		"body": [
+			"subList"
+		],
+		"description": "Primary object used to encapsulate a NetSuite sublist."
+	},
+	"(Standard Obj) tab Obj": {
+		"prefix": "tab",
+		"body": [
+			"tab"
+		],
+		"description": "Primary object used to encapsulate tabs and subtabs."
+	},
+	"(Standard Obj) templateRenderer Obj": {
+		"prefix": "templateRenderer",
+		"body": [
+			"templateRenderer"
+		],
+		"description": "Template engine that produces HTML and PDF printed forms utilizing advanced PDF/HTML template capabilities."
 	}
-
 }
